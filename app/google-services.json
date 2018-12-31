@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "762128601919",
+    "firebase_url": "https://my-daily-korean.firebaseio.com",
+    "project_id": "my-daily-korean",
+    "storage_bucket": "my-daily-korean.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:762128601919:android:7147a3c0606c48af",
+        "android_client_info": {
+          "package_name": "com.dailykorean.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "762128601919-b03585bkslopktps2en77e29m5b9hil7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAi-0qX4W0LC8B8GS4HmyFW2ugNzQoq_NI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

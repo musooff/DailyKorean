@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rv_toolbar"
+        android:background="@color/colorPrimaryDarker">
+
+        <beautifiers.FontTextView
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:id="@+id/tv_title"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:text="Today's Expression"/>
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentLeft="true"
+            android:id="@+id/iv_main_star"
+            android:src="@drawable/icon_star_main"/>
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_margin="12.5dp"
+            android:id="@+id/iv_main_saved"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/icon_saved"/>
+    </RelativeLayout>
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tabs"
+        android:layout_above="@+id/bottom_icons"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        app:tabIndicatorHeight="2dp"/>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/pager"
+        android:layout_below="@id/rv_toolbar"
+        android:layout_above="@+id/tabs"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </android.support.v4.view.ViewPager>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:id="@+id/bottom_icons"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimaryDarker">
+        <ImageView
+            android:layout_width="0dp"
+            android:id="@+id/iv_conveos"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_margin="10dp"
+            android:alpha="0.3"
+            android:src="@drawable/icon_convos"/>
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/iv_home"
+            android:layout_margin="10dp"
+            android:src="@drawable/icon_home"/>
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/iv_words"
+            android:layout_margin="10dp"
+            android:alpha="0.3"
+            android:src="@drawable/icon_translate"/>
+    </LinearLayout>
+</RelativeLayout>

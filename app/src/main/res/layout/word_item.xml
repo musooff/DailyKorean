@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white">
+    <RelativeLayout
+        android:layout_width="350dp"
+        android:layout_height="350dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/rv_main"
+        android:layout_margin="20dp">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:src="@drawable/phrase_background"
+            android:id="@+id/main_image"
+            android:layout_centerInParent="true"/>
+        <beautifiers.FontTextView
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            android:layout_centerInParent="true"
+            android:padding="20dp"
+            android:text="brace"
+            android:textColor="@android:color/white"
+            android:textSize="40sp"
+            android:id="@+id/tv_word"
+            android:gravity="center"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/rv_main_buttons"
+        android:layout_below="@+id/rv_main"
+        android:layout_alignLeft="@+id/rv_main"
+        android:layout_alignRight="@+id/rv_main">
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/icon_sound"
+            android:layout_margin="10dp"
+            android:id="@+id/sound"
+            android:visibility="gone"/>
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/icon_comment"
+            android:layout_marginTop="10dp"
+            android:id="@+id/comment"
+            android:visibility="gone"
+            android:layout_toRightOf="@+id/sound"/>
+
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/icon_share"
+            android:layout_margin="10dp"
+            android:id="@+id/share"
+            android:layout_toRightOf="@+id/comment"/>
+
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/icon_bookmark"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/save"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:layout_below="@+id/rv_main_buttons"
+        android:background="@color/colorPrimaryDark"
+        android:layout_alignLeft="@+id/rv_main"
+        android:layout_alignRight="@+id/rv_main"/>
+
+</RelativeLayout>

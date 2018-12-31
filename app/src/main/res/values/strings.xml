@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Daily Korean</string>
+    <string name="AppID">ca-app-pub-8967799784519571~2440517243</string>
+    <string name="NativeAdUnitID">ca-app-pub-8967799784519571/3638048841</string>
+    <string name="BannerAdUnitID">ca-app-pub-8967799784519571/9081612440</string>
+    <string name="InterAdUnitID">ca-app-pub-8967799784519571/4511812044</string>
+</resources>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rv_toolbar"
+        android:background="@color/colorPrimaryDarker">
+
+        <beautifiers.FontTextView
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:id="@+id/tv_title"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:text="Favorite Words and Phrases"/>
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="10dp"
+            android:id="@+id/iv_home"
+            android:layout_alignParentLeft="true"
+            android:src="@drawable/icon_home"/>
+    </RelativeLayout>
+    <beautifiers.FontTextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/rv_toolbar"
+        android:gravity="center"
+        android:id="@+id/tv_alert"
+        android:layout_margin="20dp"
+        android:textSize="30sp"
+        android:text="You don't have any favorite word yet.\nTry to add some from Home"/>
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_below="@+id/rv_toolbar"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/rv_favorite_words">
+
+    </android.support.v7.widget.RecyclerView>
+
+</RelativeLayout>

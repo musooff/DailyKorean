@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/rv_cards"
+        android:layout_marginTop="10dp">
+
+    </android.support.v7.widget.RecyclerView>
+
+    <beautifiers.FontTextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:id="@+id/tv_alert"
+        android:layout_margin="20dp"
+        android:textSize="30sp"
+        android:visibility="invisible"
+        android:text="Sunday, Funday\nQuizzes are coming soon..."/>
+    <com.victor.loading.book.BookLoading
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:visibility="invisible"
+        android:id="@+id/bookloading"/>
+
+</RelativeLayout>
