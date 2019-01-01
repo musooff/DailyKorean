@@ -74,10 +74,10 @@ class EntryListActivity: AppCompatActivity() {
             fun bind(entry: Entry) {
                 view.entrylist_item_tv.text = entry.mean
                 if (entry.isFavorite){
-                    view.entrylist_item_bookmark.setImageResource(R.drawable.icon_bookmark)
+                    view.entrylist_item_bookmark.setImageResource(R.drawable.icon_saved)
                 }
                 else{
-                    view.entrylist_item_bookmark.setImageResource(R.drawable.icon_saved)
+                    view.entrylist_item_bookmark.setImageResource(R.drawable.icon_bookmark)
                 }
                 view.entrylist_item.setOnClickListener {
                     if (entry.shownKind == KIND_KOR) {
