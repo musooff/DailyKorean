@@ -5,6 +5,7 @@ import androidx.room.Entity
 import androidx.room.Ignore
 import androidx.room.PrimaryKey
 import com.dailykorean.app.home.discover.conversation.model.Sentence
+import com.dailykorean.app.home.discover.entrylist.model.Entry
 import java.util.*
 
 /**
@@ -21,6 +22,8 @@ class Expression {
     var public_date: Date? = null
     @Ignore
     var sentences: List<Sentence> = arrayListOf()
+    @Ignore
+    var entrys: List<Entry> = arrayListOf()
     var isFavorite: Boolean = false
 }
 

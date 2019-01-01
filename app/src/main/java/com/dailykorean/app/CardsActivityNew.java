@@ -194,7 +194,7 @@ public class CardsActivityNew extends Fragment {
                         editor.putString("FavoriteWordsKor",category.getTrsl_orgnc_word()+"ъ"+sharedPreferences.getString("FavoriteWordsKor",null));
                         editor.apply();
                         savedWord[0] = true;
-                        Toast.makeText(getActivity().getApplicationContext(),"Word is added to favorites",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity().getApplicationContext(),"Entry is added to favorites",Toast.LENGTH_SHORT).show();
                     }
                     else {
                         favorite.setImageResource(R.drawable.icon_bookmark);
@@ -208,7 +208,7 @@ public class CardsActivityNew extends Fragment {
                         editor.putString("FavoriteWordsKor",tempFavDatesTitles);
                         editor.apply();
                         savedWord[0] = false;
-                        Toast.makeText(getActivity().getApplicationContext(),"Word is removed from favorites",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity().getApplicationContext(),"Entry is removed from favorites",Toast.LENGTH_SHORT).show();
                     }
 
                 }

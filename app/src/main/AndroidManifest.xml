@@ -36,7 +36,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".home.discover.conversation.ConversationActivity"/>
-        <activity android:name=".home.discover.words.WordsActivity"/>
+        <activity android:name=".home.discover.entrylist.EntryListActivity"/>
     </application>
 
 </manifest>

@@ -30,9 +30,9 @@ class DiscoverRepository(val context: Context) {
                 .build()
     }
 
-    fun setFavorite(date: Date, value: Boolean){
+    fun setFavorite(id: String, value: Boolean){
         Completable.fromAction {
-            getAppDatabase().expressionDao().setFavorite(date, value)
+            getAppDatabase().expressionDao().setFavorite(id, value)
         }
                 .subscribeOn(Schedulers.io())
                 .subscribe({}, {Ln.e(it)})
@@ -48,6 +48,7 @@ class DiscoverRepository(val context: Context) {
                     .map { it.data!! }
                     .doOnNext { getAppDatabase().expressionDao().insertReplace(it) }
                     .doOnNext { getAppDatabase().sentenceDao().insertReplace(it.sentences) }
+                    .doOnNext { getAppDatabase().entryDao().insertReplace(it.entrys) }
                     .subscribe({}, { Ln.e(it)})
         }
 
@@ -56,6 +57,7 @@ class DiscoverRepository(val context: Context) {
                     .map { it.data!! }
                     .doOnNext { getAppDatabase().expressionDao().insertReplace(it) }
                     .doOnNext { getAppDatabase().sentenceDao().insertReplace(it.sentences) }
+                    .doOnNext { getAppDatabase().entryDao().insertReplace(it.entrys) }
                     .subscribe({}, { Ln.e(it)})
         }
     }

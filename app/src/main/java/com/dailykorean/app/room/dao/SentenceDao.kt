@@ -4,7 +4,6 @@ import androidx.room.Dao
 import androidx.room.Query
 import com.dailykorean.app.home.discover.conversation.model.Sentence
 import io.reactivex.Single
-import java.util.*
 
 /**
  * Created by musooff on 02/01/2019.

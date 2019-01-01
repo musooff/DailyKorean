@@ -17,6 +17,6 @@ interface ExpressionDao : BaseDao<Expression> {
     @Query("SELECT * FROM Expression")
     fun getExpressions(): DataSource.Factory<Int, Expression>
 
-    @Query("UPDATE Expression SET isFavorite = :value WHERE public_date = :date")
-    fun setFavorite(date: Date, value: Boolean)
+    @Query("UPDATE Expression SET isFavorite = :value WHERE id = :id")
+    fun setFavorite(id: String, value: Boolean)
 }

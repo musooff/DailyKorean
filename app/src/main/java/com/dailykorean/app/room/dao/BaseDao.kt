@@ -4,7 +4,6 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Update
-import io.reactivex.Completable
 
 /**
  * Created by musooff on 01/01/2019.

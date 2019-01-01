@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.dailykorean.app.R
 import com.dailykorean.app.home.discover.conversation.ConversationActivity
 import com.dailykorean.app.home.discover.model.Expression
-import com.dailykorean.app.home.discover.words.WordsActivity
+import com.dailykorean.app.home.discover.entrylist.EntryListActivity
 import com.dailykorean.app.utils.DateUtils
 import com.dailykorean.app.utils.ShareUtils
 import kotlinx.android.synthetic.main.expression_item.view.*
@@ -81,7 +81,7 @@ class DiscoverFragment: Fragment() {
                 }
 
                 view.expression_item_translate.setOnClickListener {
-                    WordsActivity.newIntent(view.context)
+                    EntryListActivity.newIntent(view.context, expression.id!!)
                 }
 
                 view.expression_item_conversation.setOnClickListener {
@@ -93,7 +93,7 @@ class DiscoverFragment: Fragment() {
                 }
 
                 view.expression_item_favorite.setOnClickListener {
-                    repository.setFavorite(expression.public_date!!, !expression.isFavorite)
+                    repository.setFavorite(expression.id!!, !expression.isFavorite)
                 }
             }
 
