@@ -5,8 +5,9 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import com.dailykorean.app.home.discover.conversation.model.Conversation
+import com.dailykorean.app.home.discover.conversation.model.Sentence
 import com.dailykorean.app.home.discover.model.Expression
+import com.dailykorean.app.room.dao.SentenceDao
 import com.dailykorean.app.room.dao.ExpressionDao
 
 /**
@@ -16,7 +17,7 @@ import com.dailykorean.app.room.dao.ExpressionDao
 @Database(
         entities = [
             Expression::class,
-            Conversation::class
+            Sentence::class
         ],
         version = 1,
         exportSchema = false
@@ -25,6 +26,7 @@ import com.dailykorean.app.room.dao.ExpressionDao
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun expressionDao(): ExpressionDao
+    abstract fun sentenceDao(): SentenceDao
 
     companion object {
 

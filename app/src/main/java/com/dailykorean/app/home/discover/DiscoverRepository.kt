@@ -10,7 +10,6 @@ import com.dailykorean.app.room.AppDatabase
 import com.dailykorean.app.utils.DateUtils
 import com.dailykorean.app.utils.Ln
 import io.reactivex.Completable
-import io.reactivex.Observable
 import io.reactivex.schedulers.Schedulers
 import java.util.*
 
@@ -46,17 +45,18 @@ class DiscoverRepository(val context: Context) {
     inner class ExpressionBoundaryCallback : PagedList.BoundaryCallback<Expression>() {
         override fun onZeroItemsLoaded() {
             getExpressionService().getExpression(DateUtils.getToday())
-                    .subscribe({
-                        getAppDatabase().expressionDao().insertReplace(it.data!!)
-                    }, { Ln.e(it)})
+                    .map { it.data!! }
+                    .doOnNext { getAppDatabase().expressionDao().insertReplace(it) }
+                    .doOnNext { getAppDatabase().sentenceDao().insertReplace(it.sentences) }
+                    .subscribe({}, { Ln.e(it)})
         }
 
         override fun onItemAtEndLoaded(itemAtEnd: Expression) {
             getExpressionService().getExpression(DateUtils.getPrevDay(itemAtEnd.public_date))
-                    .subscribe({
-                        Ln.i("Downloaded ${it.data!!.public_date}")
-                        getAppDatabase().expressionDao().insertReplace(it.data!!)
-                    }, { Ln.e(it)})
+                    .map { it.data!! }
+                    .doOnNext { getAppDatabase().expressionDao().insertReplace(it) }
+                    .doOnNext { getAppDatabase().sentenceDao().insertReplace(it.sentences) }
+                    .subscribe({}, { Ln.e(it)})
         }
     }
 

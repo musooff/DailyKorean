@@ -4,6 +4,7 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Update
+import io.reactivex.Completable
 
 /**
  * Created by musooff on 01/01/2019.
@@ -13,6 +14,9 @@ interface BaseDao<T> {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertReplace(obj: T)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertReplace(obj: List<T>)
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insertIgnore(obj: T)

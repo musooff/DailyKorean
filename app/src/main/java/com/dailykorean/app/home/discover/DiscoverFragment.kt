@@ -25,7 +25,7 @@ import kotlinx.android.synthetic.main.fragment_discover.view.*
 
 class DiscoverFragment: Fragment() {
 
-    private lateinit var discoverRepository: DiscoverRepository
+    private lateinit var repository: DiscoverRepository
     private val expressionAdapter = ExpressionAdapter()
 
     companion object {
@@ -41,12 +41,12 @@ class DiscoverFragment: Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_discover, container, false)
 
-        discoverRepository = DiscoverRepository(context!!)
+        repository = DiscoverRepository(context!!)
 
         view.discover_rv.layoutManager = LinearLayoutManager(context)
         view.discover_rv.adapter = expressionAdapter
 
-        discoverRepository.getExpressions().observe(this, Observer {
+        repository.getExpressions().observe(this, Observer {
             expressionAdapter.submitList(it)
         })
         return view
@@ -85,7 +85,7 @@ class DiscoverFragment: Fragment() {
                 }
 
                 view.expression_item_conversation.setOnClickListener {
-                    ConversationActivity.newIntent(view.context)
+                    ConversationActivity.newIntent(view.context, expression.id!!)
                 }
 
                 view.expression_item_share.setOnClickListener {
@@ -93,7 +93,7 @@ class DiscoverFragment: Fragment() {
                 }
 
                 view.expression_item_favorite.setOnClickListener {
-                    discoverRepository.setFavorite(expression.public_date!!, !expression.isFavorite)
+                    repository.setFavorite(expression.public_date!!, !expression.isFavorite)
                 }
             }
 
