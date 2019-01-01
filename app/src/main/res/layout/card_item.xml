@@ -12,7 +12,7 @@
         android:orientation="horizontal"
         android:layout_margin="10dp">
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:layout_width="40dp"
             android:layout_height="40dp"
             app:cardCornerRadius="20sp"
@@ -29,7 +29,7 @@
                     android:src="@drawable/daily_logo"
                     android:scaleType="fitXY"/>
             </LinearLayout>
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
         <beautifiers.FontTextView
             android:layout_width="match_parent"
             android:layout_height="40dp"

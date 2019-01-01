@@ -2,15 +2,14 @@ package beautifiers;
 
 import android.content.Context;
 import android.graphics.Typeface;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.AttributeSet;
-import android.widget.TextView;
 
 /**
  * Created by moshe on 01/05/2017.
  */
 
-public class FontTextView extends android.support.v7.widget.AppCompatTextView {
+public class FontTextView extends androidx.appcompat.widget.AppCompatTextView {
     public FontTextView(Context context) {
 
         super(context);

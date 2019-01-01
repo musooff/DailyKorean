@@ -4,4 +4,9 @@
     <string name="NativeAdUnitID">ca-app-pub-8967799784519571/3638048841</string>
     <string name="BannerAdUnitID">ca-app-pub-8967799784519571/9081612440</string>
     <string name="InterAdUnitID">ca-app-pub-8967799784519571/4511812044</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="title_discover">Discover</string>
+    <string name="title_today">Today</string>
+    <string name="title_more">More</string>
+    <string name="title_my">My</string>
 </resources>
