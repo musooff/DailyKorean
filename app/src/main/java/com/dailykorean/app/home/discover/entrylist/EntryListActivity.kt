@@ -6,22 +6,22 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.dailykorean.app.R
+import com.dailykorean.app.common.base.BaseActivity
 import com.dailykorean.app.home.discover.entrylist.model.Entry
-import com.dailykorean.app.utils.Ln
 import com.dailykorean.app.utils.ShareUtils
 import kotlinx.android.synthetic.main.activity_entrylist.*
 import kotlinx.android.synthetic.main.entrylist_item.view.*
+import kotlinx.android.synthetic.main.toolbar.*
 
 /**
  * Created by musooff on 01/01/2019.
  */
 
-class EntryListActivity: AppCompatActivity() {
+class EntryListActivity: BaseActivity() {
 
     companion object {
 
@@ -43,6 +43,7 @@ class EntryListActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_entrylist)
+        initToolbar()
 
         entrylist_rv.adapter = adapter
         entrylist_rv.layoutManager = LinearLayoutManager(this)
@@ -53,6 +54,13 @@ class EntryListActivity: AppCompatActivity() {
             entries = it
             adapter.notifyDataSetChanged()
         })
+
+    }
+
+
+    override fun initToolbar() {
+        toolbar.title = getString(R.string.title_entrylist)
+        super.initToolbar()
     }
 
     inner class EntryListAdapter : RecyclerView.Adapter<EntryListAdapter.EntryListViewHolder>() {
@@ -74,10 +82,10 @@ class EntryListActivity: AppCompatActivity() {
             fun bind(entry: Entry) {
                 view.entrylist_item_tv.text = entry.mean
                 if (entry.isFavorite){
-                    view.entrylist_item_bookmark.setImageResource(R.drawable.icon_saved)
+                    view.entrylist_item_bookmark.setImageResource(R.drawable.ic_bookmark_black_24dp)
                 }
                 else{
-                    view.entrylist_item_bookmark.setImageResource(R.drawable.icon_bookmark)
+                    view.entrylist_item_bookmark.setImageResource(R.drawable.ic_bookmark_border_black_24dp)
                 }
                 view.entrylist_item.setOnClickListener {
                     if (entry.shownKind == KIND_KOR) {

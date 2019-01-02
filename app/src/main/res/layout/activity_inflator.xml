@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/rv_toolbar"
-        android:background="@color/colorPrimaryDarker">
+        android:background="@color/white">
 
         <TextView
             android:layout_width="match_parent"
@@ -55,7 +55,7 @@
         android:layout_height="60dp"
         android:id="@+id/bottom_icons"
         android:layout_alignParentBottom="true"
-        android:background="@color/colorPrimaryDarker">
+        android:background="@color/whiteDark">
         <ImageView
             android:layout_width="0dp"
             android:id="@+id/iv_conveos"

@@ -6,20 +6,22 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.dailykorean.app.R
+import com.dailykorean.app.common.base.BaseActivity
 import com.dailykorean.app.home.discover.conversation.model.Sentence
+import com.dailykorean.app.utils.ImageUtils.getImage
 import com.dailykorean.app.utils.Ln
 import kotlinx.android.synthetic.main.activity_conversation.*
 import kotlinx.android.synthetic.main.conversation_item.view.*
+import kotlinx.android.synthetic.main.toolbar.*
 
 /**
  * Created by musooff on 01/01/2019.
  */
 
-class ConversationActivity : AppCompatActivity() {
+class ConversationActivity : BaseActivity() {
 
     companion object {
 
@@ -41,6 +43,7 @@ class ConversationActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_conversation)
+        initToolbar()
 
         conversation_rv.adapter = adapter
         conversation_rv.layoutManager = LinearLayoutManager(this)
@@ -53,6 +56,12 @@ class ConversationActivity : AppCompatActivity() {
                     sentences.addAll(it)
                     adapter.notifyDataSetChanged()
                 }, { Ln.e(it) })
+
+    }
+
+    override fun initToolbar() {
+        toolbar.title = getString(R.string.title_conversation)
+        super.initToolbar()
     }
 
     inner class ConversationAdapter : RecyclerView.Adapter<ConversationAdapter.ConversationViewHolder>() {
@@ -103,24 +112,6 @@ class ConversationActivity : AppCompatActivity() {
             }
         }
 
-        private fun getImage(gender: String): Int {
-            return when (gender) {
-                "Male" -> R.drawable.male_1
-                "Female" -> R.drawable.female_1
-                "Boy" -> R.drawable.boy_1
-                "Girl" -> R.drawable.girl_1
-                "Male1" -> R.drawable.male_1
-                "Male2" -> R.drawable.male_2
-                "Male3" -> R.drawable.male_3
-                "Female1" -> R.drawable.female_1
-                "Female2" -> R.drawable.female_2
-                "Female3" -> R.drawable.female_3
-                "Girl1" -> R.drawable.girl_1
-                "Girl2" -> R.drawable.girl_2
-                "Boy2" -> R.drawable.boy_2
-                "Boy1" -> R.drawable.boy_1
-                else -> R.drawable.boy_1
-            }
-        }
+
     }
 }

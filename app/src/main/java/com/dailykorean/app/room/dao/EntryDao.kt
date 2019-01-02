@@ -10,10 +10,11 @@ import com.dailykorean.app.home.discover.entrylist.model.Entry
  */
 @Dao
 interface EntryDao: BaseDao<Entry> {
-    @Query("""SELECT * FROM ENTRY
-        WHERE conv_id = :convId
-    """)
+    @Query("""SELECT * FROM ENTRY WHERE conv_id = :convId""")
     fun getEntries(convId: String): LiveData<List<Entry>>
+
+    @Query("""SELECT * FROM ENTRY WHERE isFavorite = :isFavorite""")
+    fun getFavoriteEntries(isFavorite: Boolean): LiveData<List<Entry>>
 
     @Query("UPDATE Entry SET isFavorite = :value WHERE id = :id")
     fun setFavorite(id: String, value: Boolean)

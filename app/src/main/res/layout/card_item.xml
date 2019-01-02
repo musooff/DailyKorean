@@ -114,7 +114,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="0.1dp"
-        android:background="@color/colorPrimaryDark"
+        android:background="@color/whiteDark"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"/>
     <LinearLayout
@@ -149,7 +149,7 @@
         android:layout_height="wrap_content"
         android:text="View all comments"
         android:layout_margin="10dp"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="@color/whiteDark"
         android:visibility="gone"/>
     <beautifiers.FontTextView
         android:layout_width="match_parent"
@@ -158,5 +158,5 @@
         android:layout_marginLeft="10dp"
         android:id="@+id/tv_date"
         android:layout_marginTop="10dp"
-        android:textColor="@color/colorPrimaryDark"/>
+        android:textColor="@color/whiteDark"/>
 </LinearLayout>

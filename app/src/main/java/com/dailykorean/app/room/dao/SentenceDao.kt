@@ -14,4 +14,7 @@ interface SentenceDao: BaseDao<Sentence> {
         WHERE conv_id = :convId
         ORDER BY disp_seq ASC""")
     fun getConversation(convId: String): Single<List<Sentence>>
+
+    @Query("SELECT gender FROM Sentence WHERE trsl_orgnc_sentence = :trsl")
+    fun getGender(trsl : String): Single<String>
 }

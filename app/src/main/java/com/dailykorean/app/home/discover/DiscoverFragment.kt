@@ -18,6 +18,7 @@ import com.dailykorean.app.utils.DateUtils
 import com.dailykorean.app.utils.ShareUtils
 import kotlinx.android.synthetic.main.expression_item.view.*
 import kotlinx.android.synthetic.main.fragment_discover.view.*
+import kotlinx.android.synthetic.main.toolbar.view.*
 
 /**
  * Created by musooff on 01/01/2019.
@@ -40,6 +41,8 @@ class DiscoverFragment: Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_discover, container, false)
+
+        view.toolbar.title = getString(R.string.title_expressions)
 
         repository = DiscoverRepository(context!!)
 
@@ -74,10 +77,10 @@ class DiscoverFragment: Fragment() {
                 view.expression_item_dates_passed.text = DateUtils.daysPassed(expression.public_date!!)
 
                 if (expression.isFavorite){
-                    view.expression_item_favorite.setImageResource(R.drawable.icon_star_main)
+                    view.expression_item_favorite.setImageResource(R.drawable.ic_star_black_24dp)
                 }
                 else{
-                    view.expression_item_favorite.setImageResource(R.drawable.icon_star)
+                    view.expression_item_favorite.setImageResource(R.drawable.ic_star_border_black_24dp)
                 }
 
                 view.expression_item_translate.setOnClickListener {

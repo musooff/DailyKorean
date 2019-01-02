@@ -43,8 +43,8 @@
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@+id/conversation_item_left_thumb_cv"
                 app:cardCornerRadius="20dp"
-                app:cardElevation="10dp"
-                android:layout_margin="5dp"
+                android:layout_margin="10dp"
+                app:cardElevation="5dp"
                 android:id="@+id/conversation_item_left_text_cv"
                 android:layout_toEndOf="@+id/conversation_item_left_thumb_cv">
                 <beautifiers.FontTextView
@@ -60,9 +60,9 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="20dp"
             android:layout_marginLeft="100dp"
-            android:id="@+id/conversation_item_right"
             android:layout_marginEnd="20dp"
-            android:layout_marginStart="100dp">
+            android:layout_marginStart="100dp"
+            android:id="@+id/conversation_item_right">
 
             <androidx.cardview.widget.CardView
                 android:layout_width="40dp"

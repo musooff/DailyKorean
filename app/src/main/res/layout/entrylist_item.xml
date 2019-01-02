@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -61,10 +62,10 @@
 
 
         <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:scaleType="fitXY"
-            android:src="@drawable/icon_share"
+            app:srcCompat="@drawable/ic_share_black_24dp"
             android:layout_margin="10dp"
             android:id="@+id/entrylist_item_share"
             android:layout_toRightOf="@+id/comment"
@@ -72,10 +73,10 @@
 
 
         <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:scaleType="fitXY"
-            android:src="@drawable/icon_bookmark"
+            app:srcCompat="@drawable/ic_bookmark_border_black_24dp"
             android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
             android:id="@+id/entrylist_item_bookmark"
@@ -87,7 +88,7 @@
         android:layout_width="match_parent"
         android:layout_height="0.1dp"
         android:layout_below="@+id/entrylist_item_footer"
-        android:background="@color/colorPrimaryDark"
+        android:background="@color/whiteDark"
         android:layout_alignLeft="@+id/entrylist_item"
         android:layout_alignRight="@+id/entrylist_item"
         android:layout_alignStart="@+id/entrylist_item"

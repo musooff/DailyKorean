@@ -9,4 +9,8 @@
     <string name="title_today">Today</string>
     <string name="title_more">More</string>
     <string name="title_my">My</string>
+    <string name="title_expressions">Expressions</string>
+    <string name="title_my_tb">My Favorites</string>
+    <string name="title_conversation">Conversation</string>
+    <string name="title_entrylist">New Words</string>
 </resources>

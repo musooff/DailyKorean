@@ -3,10 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="@color/white">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/expression_item_header"
         android:orientation="horizontal"
         android:layout_margin="10dp">
 
@@ -71,96 +73,102 @@
         android:layout_width="match_parent"
         android:layout_height="50dp">
         <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:scaleType="fitXY"
-            android:src="@drawable/icon_translate"
-            android:layout_margin="10dp"
+            app:srcCompat="@drawable/ic_translate_black_24dp"
+            android:layout_margin="15dp"
             android:id="@+id/expression_item_translate"/>
 
         <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:scaleType="fitXY"
-            android:src="@drawable/icon_convos"
-            android:layout_marginTop="10dp"
+            app:srcCompat="@drawable/ic_chat_black_24dp"
+            android:layout_marginTop="15dp"
             android:id="@+id/expression_item_conversation"
-            android:layout_toRightOf="@+id/expression_item_translate"/>
+            android:layout_toRightOf="@+id/expression_item_translate"
+            android:layout_toEndOf="@+id/expression_item_translate" />
 
 
         <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:scaleType="fitXY"
-            android:src="@drawable/icon_share"
-            android:layout_margin="10dp"
+            app:srcCompat="@drawable/ic_share_black_24dp"
+            android:layout_margin="15dp"
             android:id="@+id/expression_item_share"
-            android:layout_toRightOf="@+id/expression_item_conversation"/>
+            android:layout_toRightOf="@+id/expression_item_conversation"
+            android:layout_toEndOf="@+id/expression_item_conversation" />
 
 
 
         <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:scaleType="fitXY"
-            android:src="@drawable/icon_star"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="5dp"
+            app:srcCompat="@drawable/ic_star_black_24dp"
+            android:layout_margin="15dp"
             android:id="@+id/expression_item_favorite"
             android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="10dp" />
+            android:layout_alignParentEnd="true" />
     </RelativeLayout>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0.1dp"
-        android:background="@color/colorPrimaryDark"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"/>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:orientation="horizontal"
-        android:visibility="gone">
-        <ImageView
-            android:layout_width="15dp"
-            android:layout_height="15dp"
-            android:layout_marginTop="7.5dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/expression_item_footer">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:background="@color/whiteDark"
             android:layout_marginLeft="10dp"
-            android:src="@drawable/icon_liked"
+            android:layout_marginRight="10dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:orientation="horizontal"
+            android:visibility="gone">
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_marginTop="7.5dp"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/icon_liked"
+                android:layout_marginStart="10dp" />
+            <beautifiers.FontTextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="500 likes"
+                android:textStyle="bold"
+                android:layout_marginLeft="5dp"
+                android:layout_marginStart="5dp" />
+        </LinearLayout>
+        <beautifiers.FontTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:lines="3"
+            android:id="@+id/tv_text"
+            android:text=""
+            android:layout_marginLeft="10dp"
             android:layout_marginStart="10dp" />
         <beautifiers.FontTextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="500 likes"
-            android:textStyle="bold"
-            android:layout_marginLeft="5dp"
-            android:layout_marginStart="5dp" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="View all comments"
+            android:layout_margin="10dp"
+            android:textColor="@color/whiteDark"
+            android:visibility="gone"/>
+        <beautifiers.FontTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="1 day ago"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/expression_item_dates_passed"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/whiteDark"
+            android:layout_marginStart="10dp" />
     </LinearLayout>
-    <beautifiers.FontTextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:lines="3"
-        android:id="@+id/tv_text"
-        android:text=""
-        android:layout_marginLeft="10dp"
-        android:layout_marginStart="10dp" />
-    <beautifiers.FontTextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="View all comments"
-        android:layout_margin="10dp"
-        android:textColor="@color/colorPrimaryDark"
-        android:visibility="gone"/>
-    <beautifiers.FontTextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="1 day ago"
-        android:layout_marginLeft="10dp"
-        android:id="@+id/expression_item_dates_passed"
-        android:layout_marginTop="10dp"
-        android:textColor="@color/colorPrimaryDark"
-        android:layout_marginStart="10dp" />
 </LinearLayout>

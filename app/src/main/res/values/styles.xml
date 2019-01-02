@@ -3,17 +3,18 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorPrimaryDark</item>
-        <item name="android:textColor">@color/colorAccent</item>
-        <item name="android:editTextColor">@color/colorAccent</item>
-        <item name="android:textColorPrimary">@color/colorPrimaryDark</item>
-        <item name="android:textColorSecondary">@color/colorAccent</item>
-        <item name="android:textColorTertiary">@color/colorAccent</item>
-        <item name="android:textColorPrimaryInverse">@color/colorAccent</item>
-        <item name="android:textColorSecondaryInverse">@color/colorAccent</item>
-        <item name="android:textColorTertiaryInverse">@color/colorAccent</item>
+        <item name="colorPrimary">@color/green</item>
+        <item name="colorPrimaryDark">@color/blackLight</item>
+        <item name="actionMenuTextColor">@color/blackLight</item>
+        <item name="colorAccent">@color/blackLight</item>
+        <item name="android:textColor">@color/blackLight</item>
+        <item name="android:editTextColor">@color/blackLight</item>
+        <item name="android:textColorPrimary">@color/blackLight</item>
+        <item name="android:textColorSecondary">@color/blackLight</item>
+        <item name="android:textColorTertiary">@color/blackLight</item>
+        <item name="android:textColorPrimaryInverse">@color/blackLight</item>
+        <item name="android:textColorSecondaryInverse">@color/blackLight</item>
+        <item name="android:textColorTertiaryInverse">@color/blackLight</item>
     </style>
 
     <style name="AppTheme.NoActionBar" parent="AppTheme">

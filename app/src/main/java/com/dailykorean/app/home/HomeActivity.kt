@@ -29,7 +29,6 @@ class HomeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_home)
 
         mFragmentManager = supportFragmentManager
-        loadFragment(TodayFragment())
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
 
     }
@@ -37,19 +36,19 @@ class HomeActivity : AppCompatActivity() {
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
             R.id.navigation_today -> {
-                switchFragment(TODAY_FRAGMENT_TAG)
+                loadFragment(TodayFragment())
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_discover -> {
-                switchFragment(DISCOVER_FRAGMENT_TAG)
+                loadFragment(DiscoverFragment())
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_my -> {
-                switchFragment(MY_FRAGMENT_TAG)
+                loadFragment(MyFragment())
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_more -> {
-                switchFragment(MORE_FRAGMENT_TAG)
+                loadFragment(MoreFragment())
                 return@OnNavigationItemSelectedListener true
             }
         }
@@ -77,14 +76,14 @@ class HomeActivity : AppCompatActivity() {
         var fragment = mFragmentManager.findFragmentByTag(tag)
         if (fragment == null) {
             fragment = getFragment(tag)
-            fragmentTransaction.add(container.id, fragment, tag)
+            fragmentTransaction.add(R.id.fragment_container, fragment, tag)
         } else {
             fragmentTransaction.attach(fragment)
         }
 
         fragmentTransaction.setPrimaryNavigationFragment(fragment)
         fragmentTransaction.setReorderingAllowed(true)
-        fragmentTransaction.commitNowAllowingStateLoss()
+        fragmentTransaction.commitNow()
     }
 
     private fun getFragment(tag: String): Fragment{

@@ -1,5 +1,7 @@
 package com.dailykorean.app.home.discover.entrylist.model
 
+import android.os.Parcel
+import android.os.Parcelable
 import androidx.annotation.NonNull
 import androidx.room.Entity
 import androidx.room.Ignore
@@ -11,7 +13,7 @@ import com.dailykorean.app.home.discover.entrylist.EntryListActivity
  */
 
 @Entity
-class Entry {
+class Entry() : Parcelable {
     @PrimaryKey
     @NonNull
     var id: String? = null
@@ -28,6 +30,13 @@ class Entry {
     @Ignore
     var shownKind = EntryListActivity.KIND_KOR
 
+    constructor(parcel: Parcel) : this() {
+        id = parcel.readString()
+        conv_id = parcel.readString()
+        isFavorite = parcel.readByte() != 0.toByte()
+        shownKind = parcel.readInt()
+    }
+
     private fun removeHTML(string: String): String {
         var result = string.replace("<b>", "")
         result = result.replace("</b>", "")
@@ -43,5 +52,26 @@ class Entry {
             result = result.substring(0, result.indexOf("("))
         }
         return result
+    }
+
+    override fun writeToParcel(parcel: Parcel, flags: Int) {
+        parcel.writeString(id)
+        parcel.writeString(conv_id)
+        parcel.writeByte(if (isFavorite) 1 else 0)
+        parcel.writeInt(shownKind)
+    }
+
+    override fun describeContents(): Int {
+        return 0
+    }
+
+    companion object CREATOR : Parcelable.Creator<Entry> {
+        override fun createFromParcel(parcel: Parcel): Entry {
+            return Entry(parcel)
+        }
+
+        override fun newArray(size: Int): Array<Entry?> {
+            return arrayOfNulls(size)
+        }
     }
 }
