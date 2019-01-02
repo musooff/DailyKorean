@@ -98,7 +98,7 @@ class EntryListActivity: BaseActivity() {
                 }
 
                 view.entrylist_item_share.setOnClickListener {
-                    ShareUtils(view.context).shareExpression(it)
+                    ShareUtils(view.context).shareExpression(this@EntryListActivity, it)
                 }
 
                 view.entrylist_item_bookmark.setOnClickListener {

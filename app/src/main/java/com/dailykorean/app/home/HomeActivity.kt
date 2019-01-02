@@ -2,7 +2,6 @@ package com.dailykorean.app.home
 
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.dailykorean.app.R
 import com.dailykorean.app.home.discover.DiscoverFragment
@@ -11,9 +10,10 @@ import com.dailykorean.app.home.my.MyFragment
 import com.dailykorean.app.home.today.TodayFragment
 import kotlinx.android.synthetic.main.activity_home.*
 import androidx.fragment.app.FragmentManager
+import com.dailykorean.app.common.base.BaseActivity
 
 
-class HomeActivity : AppCompatActivity() {
+class HomeActivity : BaseActivity() {
 
     companion object {
         private const val TODAY_FRAGMENT_TAG = "todayFragment"
@@ -23,6 +23,7 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private lateinit var mFragmentManager: FragmentManager
+    private lateinit var activeFragment: Fragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,15 +56,21 @@ class HomeActivity : AppCompatActivity() {
         false
     }
 
-    private fun loadFragment(fragment: Fragment?): Boolean {
-        if (fragment != null) {
+    private fun loadFragment(fragment: Fragment) {
+        if (!::activeFragment.isInitialized){
             supportFragmentManager
                     .beginTransaction()
                     .replace(R.id.fragment_container, fragment)
-                    .commit()
-            return true
+                    .commitNow()
         }
-        return false
+        else {
+            supportFragmentManager
+                    .beginTransaction()
+                    .remove(activeFragment)
+                    .replace(R.id.fragment_container, fragment)
+                    .commitNow()
+            activeFragment = fragment
+        }
     }
 
     private fun switchFragment(tag: String){

@@ -1,6 +1,7 @@
 package com.dailykorean.app.common.base
 
 import androidx.appcompat.app.AppCompatActivity
+import com.dailykorean.app.utils.PermissionUtils
 import kotlinx.android.synthetic.main.toolbar.*
 
 /**
@@ -18,5 +19,10 @@ abstract class BaseActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         supportActionBar!!.setDisplayShowHomeEnabled(true)
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        PermissionUtils.onRequestPermissionsResult(requestCode, permissions, grantResults)
     }
 }

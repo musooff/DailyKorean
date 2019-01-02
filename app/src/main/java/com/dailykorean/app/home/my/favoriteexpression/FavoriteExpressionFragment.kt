@@ -14,6 +14,9 @@ import com.dailykorean.app.home.discover.model.FavoriteExpression
 import com.dailykorean.app.utils.ImageUtils.getImage
 import kotlinx.android.synthetic.main.favorite_expression_item.view.*
 import kotlinx.android.synthetic.main.fragment_favorite_expression.view.*
+import androidx.recyclerview.widget.DividerItemDecoration
+
+
 
 /**
  * Created by musooff on 02/01/2019.
@@ -31,13 +34,20 @@ class FavoriteExpressionFragment : Fragment(){
 
         repository = FavoriteExpressionRepository(context!!)
 
-        view.favorite_exp_rv.layoutManager = LinearLayoutManager(activity)
+        val layoutManager = LinearLayoutManager(activity)
+        view.favorite_exp_rv.layoutManager = layoutManager
         view.favorite_exp_rv.adapter = adapter
 
-        repository.getFavoriteExpressions().observe(this, Observer {
-            favoriteExpressions = it
-            adapter.notifyDataSetChanged()
-        })
+        val dividerItemDecoration = DividerItemDecoration(context, layoutManager.orientation)
+        dividerItemDecoration.setDrawable(resources.getDrawable(R.drawable.recycler_view_divider))
+        view.favorite_exp_rv.addItemDecoration(dividerItemDecoration)
+
+
+        repository.getFavoriteExpressions()
+                .subscribe({
+                    favoriteExpressions = it
+                    adapter.notifyDataSetChanged()
+                }, {})
         return view
     }
 

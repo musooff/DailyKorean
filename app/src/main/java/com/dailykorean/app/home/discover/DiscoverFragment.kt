@@ -73,7 +73,7 @@ class DiscoverFragment: Fragment() {
         inner class ExpressionViewHolder(val view: View): RecyclerView.ViewHolder(view){
             fun bind(expression: Expression){
                 view.expression_item_title.text = "${expression.title}\n\n${expression.title_translation}"
-                view.expression_item_date.text = DateUtils.toString(expression.public_date)
+                view.expression_item_date.text = DateUtils.toPrintString(expression.public_date)
                 view.expression_item_dates_passed.text = DateUtils.daysPassed(expression.public_date!!)
 
                 if (expression.isFavorite){
@@ -92,7 +92,7 @@ class DiscoverFragment: Fragment() {
                 }
 
                 view.expression_item_share.setOnClickListener {
-                    ShareUtils(view.context).shareExpression(it)
+                    ShareUtils(view.context).shareExpression(activity!!, it)
                 }
 
                 view.expression_item_favorite.setOnClickListener {

@@ -12,9 +12,14 @@ object DateUtils {
 
     private const val MILLISECONDS_PER_DAY = 24*60*60*1000
     private val dateFormat = SimpleDateFormat("yyyyMMdd", Locale.KOREAN)
+    private val printDateFormat = SimpleDateFormat("d일 M월 yyyy년", Locale.KOREAN)
 
     fun toString(date: Date?): String? {
         return if (date == null) null else dateFormat.format(date)
+    }
+
+    fun toPrintString(date: Date?): String? {
+        return if (date == null) null else printDateFormat.format(date)
     }
 
     fun toDate(date: String?): Date? {

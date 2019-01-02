@@ -1,5 +1,6 @@
 package com.dailykorean.app.utils
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -20,10 +21,17 @@ class ShareUtils(val context: Context) {
         private const val FACEBOOK_APPLICATION_ID = "com.facebook.katana"
     }
 
-    fun shareExpression(view: View){
-        val bitmap = screenShot(view)
-        val uri = getImageUri(bitmap)
-        shareScreen(uri, FACEBOOK_APPLICATION_ID)
+    fun shareExpression(activity: Activity, view: View){
+        PermissionUtils.requestStorage(activity, object : PermissionUtils.Companion.OnPermissionResult {
+            override fun onResult(requestCode: Int, granted: Boolean, permissions: Array<String>) {
+                if (granted){
+                    val bitmap = screenShot(view)
+                    val uri = getImageUri(bitmap)
+                    shareScreen(uri, FACEBOOK_APPLICATION_ID)
+                }
+            }
+        })
+
     }
 
     private fun shareScreen(pngUri: Uri, sharingApp: String) {
@@ -63,4 +71,5 @@ class ShareUtils(val context: Context) {
         }
 
     }
+
 }
