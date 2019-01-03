@@ -1,7 +1,6 @@
 package com.dailykorean.app.main.home
 
 import android.content.Context
-import com.dailykorean.app.main.discover.model.Expression
 import com.dailykorean.app.main.discover.model.HomeExpression
 import com.dailykorean.app.room.AppDatabase
 import io.reactivex.Single

@@ -31,4 +31,13 @@
         <item name="android:windowContentOverlay">@null</item>
     </style>
 
+    <style name="AppTheme.ActionBar" parent="AppTheme">
+        <item name="colorPrimary">@color/blackLight</item>
+        <item name="colorPrimaryDark">@color/blackLight</item>
+        <item name="colorAccent">@color/blackLight</item>
+        <item name="android:textColor">@color/blackLight</item>
+        <item name="android:textColorPrimary">@color/blackLight</item>
+        <item name="android:actionMenuTextColor">@color/blackLight</item>
+    </style>
+
 </resources>

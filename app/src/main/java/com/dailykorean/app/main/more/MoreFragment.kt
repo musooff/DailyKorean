@@ -12,6 +12,7 @@ import com.dailykorean.app.dialog.DialogRepository
 import com.dailykorean.app.dialog.ErrorDialog
 import com.dailykorean.app.dialog.FavoriteExpressionDialog
 import com.dailykorean.app.main.discover.model.Expression
+import com.dailykorean.app.main.more.settings.SettingsActivity
 import io.reactivex.android.schedulers.AndroidSchedulers
 import kotlinx.android.synthetic.main.fragment_more.view.*
 import kotlinx.android.synthetic.main.toolbar.view.*
@@ -34,6 +35,10 @@ class MoreFragment: Fragment() {
         view.toolbar.title = getString(R.string.title_more)
 
         repository = DialogRepository(context!!)
+
+        view.more_settings.setOnClickListener {
+            SettingsActivity.newIntent(context!!)
+        }
 
         view.more_goto.setOnClickListener {
             val datePickerFragment = DatePickerFragment()
