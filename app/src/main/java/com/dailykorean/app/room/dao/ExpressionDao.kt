@@ -21,6 +21,9 @@ interface ExpressionDao : BaseDao<Expression> {
     @Query("SELECT * FROM Expression ORDER BY public_date DESC LIMIT 1")
     fun getLatestExpression(): Single<HomeExpression>
 
+    @Query("SELECT * FROM Expression ORDER BY public_date DESC LIMIT 1")
+    fun getLatestExpressionChecking(): Expression?
+
     @Query("SELECT * FROM Expression INNER JOIN Sentence ON Sentence.trsl_orgnc_sentence LIKE '%'||Expression.title_translation||'%' WHERE isFavorite = :isFavorite ORDER BY public_date DESC")
     fun getFavoriteExpressions(isFavorite: Boolean): Single<List<FavoriteExpression>>
 

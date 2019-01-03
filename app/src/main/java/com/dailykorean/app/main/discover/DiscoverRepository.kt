@@ -43,7 +43,7 @@ class DiscoverRepository(val context: Context) {
 
     inner class ExpressionBoundaryCallback : PagedList.BoundaryCallback<Expression>() {
         override fun onZeroItemsLoaded() {
-            getExpressionService().getExpression(DateUtils.getToday())
+            getExpressionService().getExpression(DateUtils.getTodayString())
                     .map { it.data!! }
                     .doOnNext { getAppDatabase().expressionDao().insertReplace(it) }
                     .doOnNext { getAppDatabase().sentenceDao().insertReplace(it.sentences) }

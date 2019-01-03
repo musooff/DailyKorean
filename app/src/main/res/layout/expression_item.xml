@@ -33,7 +33,6 @@
         <beautifiers.FontTextView
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:text="Today's Expression"
             android:gravity="center_vertical"
             android:id="@+id/expression_item_date"
             android:textAlignment="center"
@@ -57,7 +56,6 @@
             <beautifiers.FontTextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Where did you find it?\n\n어디서 찾으셨어요"
                 android:textColor="@android:color/white"
                 android:gravity="center"
                 android:textSize="20sp"
@@ -157,14 +155,12 @@
         <beautifiers.FontTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="View all comments"
             android:layout_margin="10dp"
             android:textColor="@color/whiteDark"
             android:visibility="gone"/>
         <beautifiers.FontTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="1 day ago"
             android:layout_marginLeft="10dp"
             android:id="@+id/expression_item_dates_passed"
             android:layout_marginTop="10dp"

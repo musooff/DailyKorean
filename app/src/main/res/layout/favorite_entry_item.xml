@@ -15,13 +15,11 @@
         <beautifiers.FontTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="안녕하세요"
             android:id="@+id/fav_entry_kor"/>
 
         <beautifiers.FontTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Annyonghaseyo"
             android:id="@+id/fav_entry_eng"/>
     </LinearLayout>
 

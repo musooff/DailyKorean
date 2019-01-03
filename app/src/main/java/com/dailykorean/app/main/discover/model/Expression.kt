@@ -62,7 +62,6 @@ open class Expression() : Parcelable{
 
 class FavoriteExpression : Expression (){
     var gender: String? = null
-    var sentenceId: String? = null
 }
 
 class ExpressionResult{

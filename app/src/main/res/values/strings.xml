@@ -13,4 +13,8 @@
     <string name="title_my_tb">My Favorites</string>
     <string name="title_conversation">Conversation</string>
     <string name="title_entrylist">Words and Phrases</string>
+    <string name="title_home_words">Words and Phrases</string>
+    <string name="retry">Retry</string>
+    <string name="error_message">No internet connection</string>
+    <string name="error_tip">Connect to Internet and try again</string>
 </resources>

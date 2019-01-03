@@ -26,9 +26,13 @@ object DateUtils {
         return if (date == null) null else dateFormat.parse(date)
     }
 
-    fun getToday(): String {
+    fun getTodayString(): String {
         val cal = Calendar.getInstance()
         return dateFormat.format(cal.time)
+    }
+
+    fun getTodayDate(): Date {
+        return dateFormat.parse(getTodayString())
     }
 
     fun getPrevDay(date: Date?): String {

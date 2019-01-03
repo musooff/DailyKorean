@@ -49,7 +49,7 @@ class Entry() : Parcelable {
             result = result.substring(0, result.indexOf(","))
         }
         if (result.contains("(")) {
-            result = result.substring(0, result.indexOf("("))
+            result = result.substring(result.indexOf(")") + 2)
         }
         return result
     }

@@ -1,5 +1,7 @@
 package com.dailykorean.app.main
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.fragment.app.Fragment
@@ -20,6 +22,11 @@ class MainActivity : BaseActivity() {
         private const val DISCOVER_FRAGMENT_TAG = "discoverFragment"
         private const val MY_FRAGMENT_TAG = "myFragment"
         private const val MORE_FRAGMENT_TAG = "moreFragment"
+
+        fun newIntent(context: Context) {
+            val intent = Intent(context, MainActivity::class.java)
+            context.startActivity(intent)
+        }
     }
 
     private lateinit var mFragmentManager: FragmentManager

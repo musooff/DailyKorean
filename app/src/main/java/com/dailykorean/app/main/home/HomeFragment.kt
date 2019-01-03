@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.dailykorean.app.R
 import com.dailykorean.app.main.discover.conversation.ConversationAdapter
 import com.dailykorean.app.main.my.favoriteentry.FavoriteEntryAdapter
+import com.dailykorean.app.utils.ImageUtils.getImage
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_home.view.*
 
@@ -47,6 +48,11 @@ class HomeFragment: Fragment() {
         repository.getLatestExpression()
                 .subscribe({
                     view.home_header_title.text = "${it.title_translation}\n\n${it.title}"
+                    it.sentences.forEach { sentence ->
+                        if (sentence.trsl_orgnc_sentence!!.contains(it.title_translation!!)){
+                            view.home_header_thumb.setImageDrawable(resources.getDrawable(getImage(sentence.gender!!)))
+                        }
+                    }
                     conversationAdapter.submitList(it.sentences)
                     entryAdapter.submitList(it.entrys)
                 },{})
