@@ -6,7 +6,7 @@
         <item name="colorPrimary">@color/green</item>
         <item name="colorPrimaryDark">@color/white</item>
         <item name="actionMenuTextColor">@color/blackLight</item>
-        <item name="colorAccent">@color/blackLight</item>
+        <item name="colorAccent">@color/white</item>
         <item name="android:textColor">@color/blackLight</item>
         <item name="android:editTextColor">@color/blackLight</item>
         <item name="android:textColorPrimary">@color/blackLight</item>

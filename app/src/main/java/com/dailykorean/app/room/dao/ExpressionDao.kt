@@ -7,6 +7,7 @@ import com.dailykorean.app.main.discover.model.Expression
 import com.dailykorean.app.main.discover.model.FavoriteExpression
 import com.dailykorean.app.main.discover.model.HomeExpression
 import io.reactivex.Single
+import java.util.*
 
 /**
  * Created by musooff on 01/01/2019.
@@ -23,6 +24,9 @@ interface ExpressionDao : BaseDao<Expression> {
 
     @Query("SELECT * FROM Expression ORDER BY public_date DESC LIMIT 1")
     fun getLatestExpressionChecking(): Expression?
+
+    @Query("SELECT * FROM Expression WHERE public_date = :date")
+    fun getExpression(date: Date): Expression?
 
     @Query("SELECT * FROM Expression INNER JOIN Sentence ON Sentence.trsl_orgnc_sentence LIKE '%'||Expression.title_translation||'%' WHERE isFavorite = :isFavorite ORDER BY public_date DESC")
     fun getFavoriteExpressions(isFavorite: Boolean): Single<List<FavoriteExpression>>

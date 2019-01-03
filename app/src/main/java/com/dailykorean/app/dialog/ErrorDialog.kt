@@ -17,6 +17,9 @@ object ErrorDialog{
                 .setPositiveButton(R.string.retry) { _, _ ->
                     retry.invoke()
                 }
+                .setNegativeButton(R.string.cancel) { dialog, _ ->
+                    dialog.dismiss()
+                }
         builder.create()
         builder.show()
     }
