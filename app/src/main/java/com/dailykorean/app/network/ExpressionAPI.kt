@@ -1,6 +1,6 @@
 package com.dailykorean.app.network
 
-import com.dailykorean.app.home.discover.model.ExpressionResult
+import com.dailykorean.app.main.discover.model.ExpressionResult
 import io.reactivex.Observable
 import retrofit2.http.GET
 import retrofit2.http.Path

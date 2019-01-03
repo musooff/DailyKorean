@@ -15,19 +15,13 @@
         android:name=".DailyKoreanApplication"
         android:theme="@style/AppTheme.NoActionBar"
         android:usesCleartextTraffic="true">
-        <activity android:name=".FavoritesActivityNew" />
-        <activity android:name=".SavedsActivity" />
-        <activity android:name=".MainActivity">
-
-        </activity>
-        <activity android:name=".SimpleMainActivity" />
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-8967799784519571~2440517243" />
 
         <activity
-            android:name=".home.HomeActivity"
+            android:name=".main.MainActivity"
             android:label="@string/title_activity_home">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -35,8 +29,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".home.discover.conversation.ConversationActivity"/>
-        <activity android:name=".home.discover.entrylist.EntryListActivity"/>
+        <activity android:name=".main.discover.conversation.ConversationActivity"/>
+        <activity android:name=".main.discover.entrylist.EntryListActivity"/>
     </application>
 
 </manifest>

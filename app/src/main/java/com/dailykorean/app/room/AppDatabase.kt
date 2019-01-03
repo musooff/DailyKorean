@@ -5,9 +5,9 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import com.dailykorean.app.home.discover.conversation.model.Sentence
-import com.dailykorean.app.home.discover.model.Expression
-import com.dailykorean.app.home.discover.entrylist.model.Entry
+import com.dailykorean.app.main.discover.conversation.model.Sentence
+import com.dailykorean.app.main.discover.model.Expression
+import com.dailykorean.app.main.discover.entrylist.model.Entry
 import com.dailykorean.app.room.dao.EntryDao
 import com.dailykorean.app.room.dao.SentenceDao
 import com.dailykorean.app.room.dao.ExpressionDao

@@ -1,11 +1,11 @@
 package com.dailykorean.app.room.dao
 
-import androidx.lifecycle.LiveData
 import androidx.paging.DataSource
 import androidx.room.Dao
 import androidx.room.Query
-import com.dailykorean.app.home.discover.model.Expression
-import com.dailykorean.app.home.discover.model.FavoriteExpression
+import com.dailykorean.app.main.discover.model.Expression
+import com.dailykorean.app.main.discover.model.FavoriteExpression
+import com.dailykorean.app.main.discover.model.HomeExpression
 import io.reactivex.Single
 
 /**
@@ -17,6 +17,9 @@ interface ExpressionDao : BaseDao<Expression> {
 
     @Query("SELECT * FROM Expression ORDER BY public_date DESC")
     fun getExpressions(): DataSource.Factory<Int, Expression>
+
+    @Query("SELECT * FROM Expression ORDER BY public_date DESC LIMIT 1")
+    fun getLatestExpression(): Single<HomeExpression>
 
     @Query("SELECT * FROM Expression INNER JOIN Sentence ON Sentence.trsl_orgnc_sentence LIKE '%'||Expression.title_translation||'%' WHERE isFavorite = :isFavorite ORDER BY public_date DESC")
     fun getFavoriteExpressions(isFavorite: Boolean): Single<List<FavoriteExpression>>

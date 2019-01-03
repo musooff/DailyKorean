@@ -2,7 +2,7 @@ package com.dailykorean.app.room.dao
 
 import androidx.room.Dao
 import androidx.room.Query
-import com.dailykorean.app.home.discover.conversation.model.Sentence
+import com.dailykorean.app.main.discover.conversation.model.Sentence
 import io.reactivex.Single
 
 /**

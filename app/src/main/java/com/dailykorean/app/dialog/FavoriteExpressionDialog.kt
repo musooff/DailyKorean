@@ -10,9 +10,9 @@ import android.view.ViewGroup
 import android.view.Window
 import androidx.fragment.app.DialogFragment
 import com.dailykorean.app.R
-import com.dailykorean.app.home.discover.conversation.ConversationActivity
-import com.dailykorean.app.home.discover.entrylist.EntryListActivity
-import com.dailykorean.app.home.discover.model.Expression
+import com.dailykorean.app.main.discover.conversation.ConversationActivity
+import com.dailykorean.app.main.discover.entrylist.EntryListActivity
+import com.dailykorean.app.main.discover.model.Expression
 import com.dailykorean.app.utils.DateUtils
 import com.dailykorean.app.utils.ShareUtils
 import kotlinx.android.synthetic.main.expression_item.*
