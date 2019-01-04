@@ -13,7 +13,6 @@ import com.dailykorean.app.main.home.HomeFragment
 import kotlinx.android.synthetic.main.activity_home.*
 import androidx.fragment.app.FragmentManager
 import com.dailykorean.app.common.base.BaseActivity
-import com.dailykorean.app.utils.DisplayUtils
 
 
 class MainActivity : BaseActivity() {

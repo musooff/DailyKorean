@@ -13,6 +13,7 @@ import com.dailykorean.app.dialog.ErrorDialog
 import com.dailykorean.app.dialog.FavoriteExpressionDialog
 import com.dailykorean.app.main.discover.model.Expression
 import com.dailykorean.app.main.more.settings.SettingsActivity
+import com.dailykorean.app.utils.DisplayUtils
 import io.reactivex.android.schedulers.AndroidSchedulers
 import kotlinx.android.synthetic.main.fragment_more.view.*
 import kotlinx.android.synthetic.main.toolbar.view.*
@@ -25,6 +26,11 @@ import java.util.*
 class MoreFragment: Fragment() {
 
     private lateinit var repository: DialogRepository
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        DisplayUtils.disableFullScreen(activity!!)
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_more, container, false)

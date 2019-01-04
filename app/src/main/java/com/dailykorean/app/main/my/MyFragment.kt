@@ -11,6 +11,7 @@ import androidx.fragment.app.FragmentStatePagerAdapter
 import com.dailykorean.app.R
 import com.dailykorean.app.main.my.favoriteentry.FavoriteEntryFragment
 import com.dailykorean.app.main.my.favoriteexpression.FavoriteExpressionFragment
+import com.dailykorean.app.utils.DisplayUtils
 import kotlinx.android.synthetic.main.fragment_my.view.*
 import kotlinx.android.synthetic.main.my_toolbar.*
 import kotlinx.android.synthetic.main.my_toolbar.view.*
@@ -26,6 +27,11 @@ class MyFragment: Fragment() {
     companion object {
         private const val FAVORITE_EXPRESSION_NAME = "Expression"
         private const val FAVORITE_ENTRY_NAME = "Words and Phrases"
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        DisplayUtils.disableFullScreen(activity!!)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
