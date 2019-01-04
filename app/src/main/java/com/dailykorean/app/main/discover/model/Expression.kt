@@ -10,6 +10,8 @@ import androidx.room.PrimaryKey
 import androidx.room.Relation
 import com.dailykorean.app.main.discover.conversation.model.Sentence
 import com.dailykorean.app.main.discover.entrylist.model.Entry
+import com.fasterxml.jackson.annotation.JsonFormat
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import java.util.*
 
 /**
@@ -17,12 +19,14 @@ import java.util.*
  */
 
 @Entity
+@JsonIgnoreProperties(ignoreUnknown = true)
 open class Expression() : Parcelable{
     @PrimaryKey
     @NonNull
     var id:String? = null
     var title: String? = null
     var title_translation: String? = null
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern="yyyyMMdd")
     var public_date: Date? = null
     @Ignore
     open var sentences: List<Sentence> = arrayListOf()
@@ -64,6 +68,7 @@ class FavoriteExpression : Expression (){
     var gender: String? = null
 }
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 class ExpressionResult{
     var data: Expression? = null
 }

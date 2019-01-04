@@ -34,6 +34,7 @@
             android:name=".main.more.settings.SettingsActivity"
             android:theme="@style/AppTheme.ActionBar"
             android:label="@string/title_activity_settings"></activity>
+        <receiver android:name=".notification.NotificationReceiver"/>
     </application>
 
 </manifest>

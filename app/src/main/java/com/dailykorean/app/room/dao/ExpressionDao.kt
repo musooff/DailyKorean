@@ -29,7 +29,7 @@ interface ExpressionDao : BaseDao<Expression> {
     @Query("SELECT * FROM Expression WHERE public_date = :date")
     fun getExpression(date: Date): Expression?
 
-    @Query("SELECT * FROM Expression INNER JOIN Sentence ON Sentence.trsl_orgnc_sentence LIKE '%'||Expression.title_translation||'%' WHERE isFavorite = :isFavorite ORDER BY public_date DESC")
+    @Query("SELECT * FROM Expression INNER JOIN Sentence ON Sentence.orgnc_sentence LIKE '%'||Expression.title||'%' WHERE isFavorite = :isFavorite ORDER BY public_date DESC")
     fun getFavoriteExpressions(isFavorite: Boolean): LiveData<List<FavoriteExpression>>
 
     @Query("UPDATE Expression SET isFavorite = :value WHERE id = :id")

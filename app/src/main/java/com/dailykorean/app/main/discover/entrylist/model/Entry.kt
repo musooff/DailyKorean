@@ -7,12 +7,14 @@ import androidx.room.Entity
 import androidx.room.Ignore
 import androidx.room.PrimaryKey
 import com.dailykorean.app.main.discover.entrylist.EntryListActivity
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 
 /**
  * Created by musooff on 01/01/2019.
  */
 
 @Entity
+@JsonIgnoreProperties(ignoreUnknown = true)
 class Entry() : Parcelable {
     @PrimaryKey
     @NonNull

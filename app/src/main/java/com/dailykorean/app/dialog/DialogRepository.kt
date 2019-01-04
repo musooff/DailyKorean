@@ -5,9 +5,7 @@ import com.dailykorean.app.main.discover.model.Expression
 import com.dailykorean.app.network.ExpressionService
 import com.dailykorean.app.room.AppDatabase
 import com.dailykorean.app.utils.DateUtils
-import com.dailykorean.app.utils.Ln
 import io.reactivex.Observable
-import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import java.util.*

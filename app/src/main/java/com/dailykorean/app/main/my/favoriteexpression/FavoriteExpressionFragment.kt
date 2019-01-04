@@ -16,7 +16,6 @@ import kotlinx.android.synthetic.main.fragment_favorite_expression.view.*
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.dailykorean.app.main.my.EditActionModeFragment
 import com.dailykorean.app.utils.ExpressionUtils.getExpressionId
-import kotlinx.android.synthetic.main.my_toolbar.*
 
 
 /**
@@ -84,7 +83,7 @@ class FavoriteExpressionFragment : EditActionModeFragment(){
             fun bind(expression: FavoriteExpression) {
                 view.fav_exp_eng.text = expression.title_translation
                 view.fav_exp_kor.text = expression.title
-                view.fav_exp__thumb_iv.setImageResource(getImage(expression.gender!!))
+                view.fav_exp_thumb_iv.setImageResource(getImage(expression.gender!!))
 
                 if (isActionMode) {
                     view.favorite_item_selected.isEnabled = false

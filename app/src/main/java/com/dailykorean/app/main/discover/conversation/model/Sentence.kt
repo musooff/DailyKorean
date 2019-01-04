@@ -5,6 +5,7 @@ import androidx.room.Entity
 import androidx.room.Ignore
 import androidx.room.PrimaryKey
 import com.dailykorean.app.main.discover.conversation.ConversationActivity
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import java.util.*
 
 /**
@@ -12,6 +13,7 @@ import java.util.*
  */
 
 @Entity
+@JsonIgnoreProperties(ignoreUnknown = true)
 class Sentence {
     @PrimaryKey
     @NonNull
@@ -34,4 +36,5 @@ class Sentence {
         result = result.replace("</b>", "")
         return result
     }
+
 }

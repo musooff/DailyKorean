@@ -2,6 +2,7 @@ package com.dailykorean.app.notification
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
+import android.app.PendingIntent
 import android.content.Context
 import android.os.Build
 import androidx.core.app.NotificationCompat
@@ -10,6 +11,8 @@ import com.dailykorean.app.R
 import com.dailykorean.app.utils.ImageUtils.getImage
 import android.graphics.BitmapFactory
 import com.dailykorean.app.main.discover.model.Expression
+import android.content.Intent
+import com.dailykorean.app.splash.SplashActivity
 
 
 /**
@@ -20,14 +23,24 @@ class NotificationService(val context: Context) {
 
     init {
         createNotificationChannel()
+
     }
+
+    private val alarmIntent = Intent(context, SplashActivity::class.java).apply {
+        flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+    }
+    private val pendingIntent = PendingIntent.getActivity(context, 0, alarmIntent, 0)
+
 
     companion object {
         private const val CHANNEL_ID = "expressionNotification"
         private const val DEFAULT_GENDER = "Female"
     }
 
+
+
     fun newExpression(expression: Expression) {
+
         val mBuilder = NotificationCompat.Builder(context, CHANNEL_ID)
                 .setSmallIcon(R.drawable.daily_logo)
                 .setContentTitle(context.getString(R.string.todays_expression))
@@ -38,6 +51,8 @@ class NotificationService(val context: Context) {
                         BitmapFactory.decodeResource(context.resources, getImage(getGender(expression)))
                 )
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                .setContentIntent(pendingIntent)
+                .setAutoCancel(true)
 
         with(NotificationManagerCompat.from(context)) {
             notify(1, mBuilder.build())
@@ -55,15 +70,17 @@ class NotificationService(val context: Context) {
                         BitmapFactory.decodeResource(context.resources, getImage(DEFAULT_GENDER))
                 )
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                .setContentIntent(pendingIntent)
+                .setAutoCancel(true)
 
         with(NotificationManagerCompat.from(context)) {
-            notify(1, mBuilder.build())
+            notify(2, mBuilder.build())
         }
     }
 
     private fun getGender(expression: Expression) : String{
         expression.sentences.forEach { sentence ->
-            if (sentence.trsl_orgnc_sentence!!.contains(expression.title_translation!!)){
+            if (sentence.orgnc_sentence!!.contains(expression.title!!)){
                 return sentence.gender!!
             }
         }

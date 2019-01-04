@@ -21,7 +21,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:id="@+id/fav_exp__thumb_iv"
+                android:id="@+id/fav_exp_thumb_iv"
                 android:src="@drawable/male_1"
                 android:textSize="20sp"/>
         </androidx.cardview.widget.CardView>
