@@ -82,7 +82,7 @@
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:scaleType="fitXY"
-            app:srcCompat="@drawable/ic_chat_black_24dp"
+            app:srcCompat="@drawable/ic_conversation_black_24dp"
             android:layout_marginTop="15dp"
             android:id="@+id/expression_item_conversation"
             android:layout_toRightOf="@+id/expression_item_translate"
@@ -164,7 +164,7 @@
             android:layout_marginLeft="10dp"
             android:id="@+id/expression_item_dates_passed"
             android:layout_marginTop="10dp"
-            android:textColor="@color/whiteDark"
+            android:textColor="@color/whiteDarker"
             android:layout_marginStart="10dp" />
     </LinearLayout>
 </LinearLayout>

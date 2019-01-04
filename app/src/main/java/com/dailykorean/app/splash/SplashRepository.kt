@@ -39,7 +39,7 @@ class SplashRepository(val context: Context) {
                 .doOnNext { getAppDatabase().expressionDao().insertReplace(it) }
                 .doOnNext { getAppDatabase().sentenceDao().insertReplace(it.sentences) }
                 .doOnNext { getAppDatabase().entryDao().insertReplace(it.entrys) }
-                .map { canContinue }
+                .map { true }
                 .onErrorReturn { canContinue }
     }
 

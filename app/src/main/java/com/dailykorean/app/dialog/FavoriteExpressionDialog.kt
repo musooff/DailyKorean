@@ -14,6 +14,7 @@ import com.dailykorean.app.main.discover.conversation.ConversationActivity
 import com.dailykorean.app.main.discover.entrylist.EntryListActivity
 import com.dailykorean.app.main.discover.model.Expression
 import com.dailykorean.app.utils.DateUtils
+import com.dailykorean.app.utils.ExpressionUtils.getExpressionId
 import com.dailykorean.app.utils.ShareUtils
 import kotlinx.android.synthetic.main.expression_item.*
 
@@ -72,17 +73,5 @@ class FavoriteExpressionDialog : DialogFragment(){
             }
         }
 
-    }
-
-    /**
-     * INNER JOIN shadowing Expression.id with Sentence.id
-     * I am stripping Sentence.id to get Expression.id
-     * */
-
-    private fun getExpressionId(id: String): String {
-        if (id.indexOf("_") != -1){
-            return id.substring(0, id.indexOf("_"))
-        }
-        return id
     }
 }

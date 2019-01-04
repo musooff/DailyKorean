@@ -36,4 +36,7 @@
     <string name="todays_expression">Today\'s Expression</string>
     <string name="todays_expression_reminder">Today\'s Expression Reminder</string>
     <string name="reminder_description">Don\'t miss today\'s expression</string>
+    <string name="title_select">Select</string>
+    <string name="title_cancel">Cancel</string>
+    <string name="delete_selected">DELETE SELECTED</string>
 </resources>

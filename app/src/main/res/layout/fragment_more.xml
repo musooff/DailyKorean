@@ -15,7 +15,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:id="@+id/more_goto">
+            android:layout_marginRight="1dp"
+            android:id="@+id/more_goto"
+            android:layout_marginEnd="1dp">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -38,7 +40,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:id="@+id/more_settings">
+            android:id="@+id/more_settings"
+            android:layout_marginLeft="1dp"
+            android:layout_marginStart="1dp">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

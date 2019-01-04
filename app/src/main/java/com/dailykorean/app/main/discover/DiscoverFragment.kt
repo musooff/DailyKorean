@@ -15,6 +15,7 @@ import com.dailykorean.app.main.discover.conversation.ConversationActivity
 import com.dailykorean.app.main.discover.model.Expression
 import com.dailykorean.app.main.discover.entrylist.EntryListActivity
 import com.dailykorean.app.utils.DateUtils
+import com.dailykorean.app.utils.DisplayUtils
 import com.dailykorean.app.utils.ShareUtils
 import kotlinx.android.synthetic.main.expression_item.view.*
 import kotlinx.android.synthetic.main.fragment_discover.view.*
@@ -37,6 +38,11 @@ class DiscoverFragment: Fragment() {
             override fun areContentsTheSame(oldConcert: Expression, newConcert: Expression): Boolean =
                     oldConcert == newConcert
         }
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        DisplayUtils.disableFullScreen(activity!!)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

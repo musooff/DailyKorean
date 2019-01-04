@@ -1,5 +1,6 @@
 package com.dailykorean.app.room.dao
 
+import androidx.lifecycle.LiveData
 import androidx.paging.DataSource
 import androidx.room.Dao
 import androidx.room.Query
@@ -29,8 +30,11 @@ interface ExpressionDao : BaseDao<Expression> {
     fun getExpression(date: Date): Expression?
 
     @Query("SELECT * FROM Expression INNER JOIN Sentence ON Sentence.trsl_orgnc_sentence LIKE '%'||Expression.title_translation||'%' WHERE isFavorite = :isFavorite ORDER BY public_date DESC")
-    fun getFavoriteExpressions(isFavorite: Boolean): Single<List<FavoriteExpression>>
+    fun getFavoriteExpressions(isFavorite: Boolean): LiveData<List<FavoriteExpression>>
 
     @Query("UPDATE Expression SET isFavorite = :value WHERE id = :id")
     fun setFavorite(id: String, value: Boolean)
+
+    @Query("UPDATE Expression SET isFavorite = :value WHERE id IN (:ids)")
+    fun setFavorite(ids: List<String>, value: Boolean)
 }

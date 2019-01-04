@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.dailykorean.app.R
@@ -14,22 +14,32 @@ import com.dailykorean.app.utils.ImageUtils.getImage
 import kotlinx.android.synthetic.main.favorite_expression_item.view.*
 import kotlinx.android.synthetic.main.fragment_favorite_expression.view.*
 import androidx.recyclerview.widget.DividerItemDecoration
-
+import com.dailykorean.app.main.my.EditActionModeFragment
+import com.dailykorean.app.utils.ExpressionUtils.getExpressionId
+import kotlinx.android.synthetic.main.my_toolbar.*
 
 
 /**
  * Created by musooff on 02/01/2019.
  */
 
-class FavoriteExpressionFragment : Fragment(){
+class FavoriteExpressionFragment : EditActionModeFragment(){
 
-    private lateinit var repository: FavoriteExpressionRepository
+    override fun getActionAdapter(): ActionAdapter {
+        return adapter
+    }
+
+    lateinit var repository: FavoriteExpressionRepository
     private val adapter = FavoriteExpressionAdapter()
     private var favoriteExpressions: List<FavoriteExpression> = ArrayList()
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.fragment_favorite_expression, container, false)
+        return inflater.inflate(R.layout.fragment_favorite_expression, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         repository = FavoriteExpressionRepository(context!!)
 
@@ -42,15 +52,20 @@ class FavoriteExpressionFragment : Fragment(){
         view.favorite_exp_rv.addItemDecoration(dividerItemDecoration)
 
 
-        repository.getFavoriteExpressions()
-                .subscribe({
-                    favoriteExpressions = it
-                    adapter.notifyDataSetChanged()
-                }, {})
-        return view
+        repository.getFavoriteExpressions().observe(this, Observer {
+            favoriteExpressions = it
+            adapter.notifyDataSetChanged()
+            invalidateOptionMenu()
+        })
     }
 
-    inner class FavoriteExpressionAdapter : RecyclerView.Adapter<FavoriteExpressionAdapter.FavoriteExpressionViewHolder>() {
+
+    inner class FavoriteExpressionAdapter : RecyclerView.Adapter<FavoriteExpressionAdapter.FavoriteExpressionViewHolder>(), ActionAdapter {
+
+        override fun isEditable(): Boolean {
+            return itemCount > 0
+        }
+
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavoriteExpressionViewHolder {
             val view = LayoutInflater.from(parent.context).inflate(R.layout.favorite_expression_item, parent, false)
             return FavoriteExpressionViewHolder(view)
@@ -71,9 +86,23 @@ class FavoriteExpressionFragment : Fragment(){
                 view.fav_exp_kor.text = expression.title
                 view.fav_exp__thumb_iv.setImageResource(getImage(expression.gender!!))
 
+                if (isActionMode) {
+                    view.favorite_item_selected.isEnabled = false
+                    view.favorite_item_selected.visibility = View.VISIBLE
+                }
+                else{
+                    view.favorite_item_selected.visibility = View.GONE
+                }
+
                 view.setOnClickListener {
-                    val dialog = FavoriteExpressionDialog.newIntent(expression)
-                    fragmentManager!!.beginTransaction().add(dialog, tag).commitAllowingStateLoss()
+                    if (isActionMode) {
+                        updateCheckedItem(getExpressionId(expression.id!!), view.favorite_item_selected)
+                    }
+                    else {
+                        val dialog = FavoriteExpressionDialog.newIntent(expression)
+                        fragmentManager!!.beginTransaction().add(dialog, tag).commitAllowingStateLoss()
+                    }
+
                 }
             }
         }

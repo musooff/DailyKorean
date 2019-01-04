@@ -3,6 +3,7 @@
     <color name="green">#00d564</color>
     <color name="white">#fafafa</color>
     <color name="whiteDark">#efefef</color>
+    <color name="whiteDarker">#b2b2b2</color>
     <color name="black">#000000</color>
     <color name="blackLight">#262626</color>
     <color name="screen1">#fda52a</color>

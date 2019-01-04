@@ -18,4 +18,7 @@ interface EntryDao: BaseDao<Entry> {
 
     @Query("UPDATE Entry SET isFavorite = :value WHERE id = :id")
     fun setFavorite(id: String, value: Boolean)
+
+    @Query("UPDATE Entry SET isFavorite = :value WHERE id IN (:ids)")
+    fun setFavorite(ids: List<String>, value: Boolean)
 }
