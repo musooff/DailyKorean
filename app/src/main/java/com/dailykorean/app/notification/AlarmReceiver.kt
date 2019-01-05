@@ -9,7 +9,7 @@ import android.content.Intent
  * Created by musooff on 04/01/2019.
  */
 
-class NotificationReceiver : BroadcastReceiver() {
+class AlarmReceiver : BroadcastReceiver() {
 
     private lateinit var repository: NotificationRepository
 

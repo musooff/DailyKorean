@@ -20,7 +20,7 @@ class Sentence {
     @NonNull
     var id: String? = null
 
-    @JsonProperty(value = "expId")
+    @JsonProperty(value = "conv_id")
     var expId: String? = null
 
     @JsonProperty(value = "orgnc_sentence")

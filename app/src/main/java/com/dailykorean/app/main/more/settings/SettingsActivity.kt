@@ -18,6 +18,7 @@ import android.preference.RingtonePreference
 import android.text.TextUtils
 import android.view.MenuItem
 import com.dailykorean.app.R
+import com.dailykorean.app.notification.AlarmScheduler
 
 /**
  * A [PreferenceActivity] that presents a set of application settings. On
@@ -76,7 +77,11 @@ class SettingsActivity : AppCompatPreferenceActivity(){
      * activity is showing a two-pane settings UI.
      */
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
-    class NotificationPreferenceFragment : PreferenceFragment(), SharedPreferences.OnSharedPreferenceChangeListener{
+    class NotificationPreferenceFragment : PreferenceFragment(){
+
+        companion object {
+            const val NOTIFICATION_NEW_EXPRESSION = "notifications_new_message"
+        }
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
             addPreferencesFromResource(R.xml.pref_notification)
@@ -87,6 +92,13 @@ class SettingsActivity : AppCompatPreferenceActivity(){
             // updated to reflect the new value, per the Android Design
             // guidelines.
             bindPreferenceSummaryToValue(findPreference("notifications_new_message_ringtone"))
+
+            PreferenceManager.getDefaultSharedPreferences(activity)
+                    .registerOnSharedPreferenceChangeListener { sharedPreferences, key ->
+                        if (key == NOTIFICATION_NEW_EXPRESSION) {
+                            AlarmScheduler(activity).updateAlarmSettings(sharedPreferences.getBoolean(NOTIFICATION_NEW_EXPRESSION, true))
+                        }
+                    }
         }
 
         override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -96,10 +108,6 @@ class SettingsActivity : AppCompatPreferenceActivity(){
                 return true
             }
             return super.onOptionsItemSelected(item)
-        }
-
-        override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences, key: String?) {
-            sharedPreferences.getBoolean(key, false)
         }
     }
 

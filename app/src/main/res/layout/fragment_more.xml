@@ -27,7 +27,7 @@
                 <ImageView
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    app:srcCompat="@drawable/ic_search_black_24dp"/>
+                    app:srcCompat="@drawable/more_search"/>
                 <beautifiers.FontTextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -52,7 +52,7 @@
                 <ImageView
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    app:srcCompat="@drawable/ic_settings_black_24dp"/>
+                    app:srcCompat="@drawable/more_settings"/>
                 <beautifiers.FontTextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"

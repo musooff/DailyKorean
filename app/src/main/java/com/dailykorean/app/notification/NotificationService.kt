@@ -12,6 +12,8 @@ import com.dailykorean.app.utils.ImageUtils.getImage
 import android.graphics.BitmapFactory
 import com.dailykorean.app.main.discover.model.Expression
 import android.content.Intent
+import android.net.Uri
+import com.dailykorean.app.AppPreference
 import com.dailykorean.app.splash.SplashActivity
 
 
@@ -25,6 +27,8 @@ class NotificationService(val context: Context) {
         createNotificationChannel()
 
     }
+
+    private val appPreference = AppPreference.getInstance(context)
 
     private val alarmIntent = Intent(context, SplashActivity::class.java).apply {
         flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
@@ -50,6 +54,7 @@ class NotificationService(val context: Context) {
                 .setLargeIcon(
                         BitmapFactory.decodeResource(context.resources, getImage(getGender(expression)))
                 )
+                .setSound(Uri.parse(appPreference.getNotificationSound()))
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                 .setContentIntent(pendingIntent)
                 .setAutoCancel(true)
