@@ -42,7 +42,7 @@ class DiscoverFragment: Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        DisplayUtils.disableFullScreen(activity!!)
+        //DisplayUtils.disableFullScreen(activity!!)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -98,7 +98,7 @@ class DiscoverFragment: Fragment() {
                 }
 
                 view.expression_item_share.setOnClickListener {
-                    ShareUtils(view.context).shareExpression(activity!!, it)
+                    ShareUtils(view.context).shareExpression(activity!!, view.expression_item_vs)
                 }
 
                 view.expression_item_favorite.setOnClickListener {

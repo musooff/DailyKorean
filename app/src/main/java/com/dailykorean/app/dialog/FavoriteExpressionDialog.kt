@@ -69,7 +69,7 @@ class FavoriteExpressionDialog : DialogFragment(){
             }
 
             expression_item_share.setOnClickListener {
-                ShareUtils(view.context).shareExpression(activity!!, it)
+                ShareUtils(view.context).shareExpression(activity!!, expression_item_vs)
             }
         }
 

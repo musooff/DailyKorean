@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.dailykorean.app.R
 import com.dailykorean.app.main.discover.conversation.ConversationAdapter
-import com.dailykorean.app.utils.DisplayUtils
 import com.dailykorean.app.utils.ImageUtils.getImage
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_home.view.*
@@ -27,7 +26,7 @@ class HomeFragment: Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        DisplayUtils.enableFullScreen(activity!!)
+        //DisplayUtils.enableFullScreen(activity!!)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

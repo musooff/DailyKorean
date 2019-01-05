@@ -31,7 +31,7 @@ class MyFragment: Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        DisplayUtils.disableFullScreen(activity!!)
+        //DisplayUtils.disableFullScreen(activity!!)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

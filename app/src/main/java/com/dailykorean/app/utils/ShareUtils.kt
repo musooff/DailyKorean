@@ -38,7 +38,7 @@ class ShareUtils(val context: Context) {
 
         val shareIntent = Intent(Intent.ACTION_SEND)
         shareIntent.type = "image/png"
-        shareIntent.putExtra(android.content.Intent.EXTRA_TEXT, "your sharing text")
+        shareIntent.putExtra(android.content.Intent.EXTRA_TEXT, "Love this application!!!. It helps me a lot while learning Korean.")
         shareIntent.putExtra(android.content.Intent.EXTRA_STREAM, pngUri)
         if (isFacebookInstalled()) {
             shareIntent.setPackage(sharingApp)
