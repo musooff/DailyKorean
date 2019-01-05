@@ -37,7 +37,7 @@ class AlarmScheduler(context: Context) {
 
         alarms.setInexactRepeating(
                 AlarmManager.RTC_WAKEUP,
-                updateTime.timeInMillis,
+                updateTime.timeInMillis + AlarmManager.INTERVAL_DAY,
                 AlarmManager.INTERVAL_DAY,
                 recurringDownload)
     }

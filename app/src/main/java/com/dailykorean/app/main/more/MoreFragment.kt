@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.dailykorean.app.R
+import com.dailykorean.app.ad.AdManager
 import com.dailykorean.app.dialog.DatePickerFragment
 import com.dailykorean.app.dialog.DialogRepository
 import com.dailykorean.app.dialog.ErrorDialog
@@ -71,6 +72,7 @@ class MoreFragment: Fragment() {
             datePickerFragment.show(fragmentManager!!, tag)
         }
 
+        AdManager().loadAdBannerAd(view.adView)
     }
 
     private fun retry(date: Date){

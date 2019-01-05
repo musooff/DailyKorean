@@ -41,4 +41,6 @@
     <string name="delete_selected">DELETE SELECTED</string>
     <string name="no_fav_expression">No favorite expressions found</string>
     <string name="no_fav_entry">No favorite words or phrases are found</string>
+
+    <string name="more_ad_id">ca-app-pub-8967799784519571/6002335212</string>
 </resources>
