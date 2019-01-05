@@ -12,6 +12,7 @@ import com.dailykorean.app.main.discover.conversation.model.Sentence
 import com.dailykorean.app.main.discover.entrylist.model.Entry
 import com.fasterxml.jackson.annotation.JsonFormat
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
+import com.fasterxml.jackson.annotation.JsonProperty
 import java.util.*
 
 /**
@@ -20,31 +21,41 @@ import java.util.*
 
 @Entity
 @JsonIgnoreProperties(ignoreUnknown = true)
-open class Expression() : Parcelable{
+open class Expression() : Parcelable {
+
     @PrimaryKey
     @NonNull
-    var id:String? = null
-    var title: String? = null
-    var title_translation: String? = null
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern="yyyyMMdd")
-    var public_date: Date? = null
+    var id: String? = null
+
+    @JsonProperty(value = "title")
+    var titleEnglish: String? = null
+
+    @JsonProperty(value = "title_translation")
+    var titleKorean: String? = null
+
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyyMMdd")
+    @JsonProperty(value = "public_date")
+    var publicDate: Date? = null
+
     @Ignore
     open var sentences: List<Sentence> = arrayListOf()
+
     @Ignore
     open var entrys: List<Entry> = arrayListOf()
+
     var isFavorite: Boolean = false
 
     constructor(parcel: Parcel) : this() {
         id = parcel.readString()
-        title = parcel.readString()
-        title_translation = parcel.readString()
+        titleEnglish = parcel.readString()
+        titleKorean = parcel.readString()
         isFavorite = parcel.readByte() != 0.toByte()
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(id)
-        parcel.writeString(title)
-        parcel.writeString(title_translation)
+        parcel.writeString(titleEnglish)
+        parcel.writeString(titleKorean)
         parcel.writeByte(if (isFavorite) 1 else 0)
     }
 
@@ -64,18 +75,19 @@ open class Expression() : Parcelable{
     }
 }
 
-class FavoriteExpression : Expression (){
+class FavoriteExpression : Expression() {
     var gender: String? = null
 }
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-class ExpressionResult{
+class ExpressionResult {
     var data: Expression? = null
 }
 
 class HomeExpression : Expression() {
-    @Relation(entity = Sentence::class, parentColumn = "id", entityColumn = "conv_id")
-    override var sentences : List<Sentence> = arrayListOf()
-    @Relation(entity = Entry::class, parentColumn = "id", entityColumn = "conv_id")
-    override var entrys : List<Entry> = arrayListOf()
+    @Relation(entity = Sentence::class, parentColumn = "id", entityColumn = "expId")
+    override var sentences: List<Sentence> = arrayListOf()
+
+    @Relation(entity = Entry::class, parentColumn = "id", entityColumn = "expId")
+    override var entrys: List<Entry> = arrayListOf()
 }

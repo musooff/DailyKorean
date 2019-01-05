@@ -55,8 +55,8 @@ class FavoriteExpressionDialog : DialogFragment(){
 
 
         arguments?.getParcelable<Expression>(EXPRESSION)?.let { expression ->
-            expression_item_title.text = "${expression.title}\n\n${expression.title_translation}"
-            expression_item_date.text = DateUtils.toString(expression.public_date)
+            expression_item_title.text = "${expression.titleEnglish}\n\n${expression.titleKorean}"
+            expression_item_date.text = DateUtils.toString(expression.publicDate)
 
             expression_item_translate.setOnClickListener {
                 EntryListActivity.newIntent(view.context, getExpressionId(expression.id!!))

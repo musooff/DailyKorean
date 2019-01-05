@@ -39,4 +39,6 @@
     <string name="title_select">Select</string>
     <string name="title_cancel">Cancel</string>
     <string name="delete_selected">DELETE SELECTED</string>
+    <string name="no_fav_expression">No favorite expressions found</string>
+    <string name="no_fav_entry">No favorite words or phrases are found</string>
 </resources>

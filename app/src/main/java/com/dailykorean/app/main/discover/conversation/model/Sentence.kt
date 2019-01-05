@@ -6,7 +6,7 @@ import androidx.room.Ignore
 import androidx.room.PrimaryKey
 import com.dailykorean.app.main.discover.conversation.ConversationActivity
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
-import java.util.*
+import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
  * Created by musooff on 01/01/2019.
@@ -15,19 +15,29 @@ import java.util.*
 @Entity
 @JsonIgnoreProperties(ignoreUnknown = true)
 class Sentence {
+
     @PrimaryKey
     @NonNull
     var id: String? = null
-    var conv_id: String? = null
-    var public_date: Date? = null
-    var orgnc_sentence : String? = null
+
+    @JsonProperty(value = "expId")
+    var expId: String? = null
+
+    @JsonProperty(value = "orgnc_sentence")
+    var sentenceEnglish : String? = null
         set(value) {
             field = removeHTML(value!!)
         }
-    var trsl_orgnc_sentence: String? = null
+    @JsonProperty(value = "trsl_orgnc_sentence")
+    var sentenceKorean: String? = null
+
     var speaker: String? = null
+
     var gender: String? = null
-    var disp_seq: Int = 0
+
+    @JsonProperty(value = "disp_seq")
+    var displaySeq: Int = 0
+
     @Ignore
     var shownKind = ConversationActivity.KIND_KOR
 

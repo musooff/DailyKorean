@@ -37,27 +37,27 @@ class ConversationAdapter : RecyclerView.Adapter<ConversationAdapter.Conversatio
         fun bind(sentence: Sentence) {
             if (sentence.speaker == "A") {
                 view.conversation_item_right.visibility = View.GONE
-                view.conversation_item_left_text_tv.text = sentence.trsl_orgnc_sentence
+                view.conversation_item_left_text_tv.text = sentence.sentenceKorean
                 view.conversation_item_left_thumb_iv.setImageResource(getImage(sentence.gender!!))
                 view.setOnClickListener {
                     if (sentence.shownKind == KIND_ENG) {
-                        view.conversation_item_left_text_tv.text = sentence.trsl_orgnc_sentence
+                        view.conversation_item_left_text_tv.text = sentence.sentenceKorean
                         sentence.shownKind = KIND_KOR
                     } else {
-                        view.conversation_item_left_text_tv.text = sentence.orgnc_sentence
+                        view.conversation_item_left_text_tv.text = sentence.sentenceEnglish
                         sentence.shownKind = KIND_ENG
                     }
                 }
             } else {
                 view.conversation_item_left.visibility = View.GONE
-                view.conversation_item_right_text_tv.text = sentence.trsl_orgnc_sentence
+                view.conversation_item_right_text_tv.text = sentence.sentenceKorean
                 view.conversation_item_right_thumb_iv.setImageResource(getImage(sentence.gender!!))
                 view.setOnClickListener {
                     if (sentence.shownKind == KIND_ENG) {
-                        view.conversation_item_right_text_tv.text = sentence.trsl_orgnc_sentence
+                        view.conversation_item_right_text_tv.text = sentence.sentenceKorean
                         sentence.shownKind = KIND_KOR
                     } else {
-                        view.conversation_item_right_text_tv.text = sentence.orgnc_sentence
+                        view.conversation_item_right_text_tv.text = sentence.sentenceEnglish
                         sentence.shownKind = KIND_ENG
                     }
                 }

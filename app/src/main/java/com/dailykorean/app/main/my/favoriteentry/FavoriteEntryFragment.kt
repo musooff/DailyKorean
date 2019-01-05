@@ -19,6 +19,9 @@ import kotlinx.android.synthetic.main.fragment_favorite_entry.view.*
  */
 
 class FavoriteEntryFragment : EditActionModeFragment(){
+    override fun getEmptyString(): String {
+        return getString(R.string.no_fav_entry)
+    }
 
     override fun getActionAdapter(): ActionAdapter {
         return adapter
@@ -49,6 +52,7 @@ class FavoriteEntryFragment : EditActionModeFragment(){
             favoriteEntries = it
             adapter.notifyDataSetChanged()
             invalidateOptionMenu()
+            invalidateEmptyList(view)
         })
 
     }
@@ -70,8 +74,8 @@ class FavoriteEntryFragment : EditActionModeFragment(){
 
         inner class FavoriteEntryViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
             fun bind(entry: Entry) {
-                view.fav_entry_eng.text = entry.orgnc_entry_name
-                view.fav_entry_kor.text = entry.mean
+                view.fav_entry_eng.text = entry.entryEnglish
+                view.fav_entry_kor.text = entry.entryKorean
 
                 if (isActionMode) {
                     view.favorite_item_selected.isEnabled = false

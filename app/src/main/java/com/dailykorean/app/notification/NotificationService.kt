@@ -44,9 +44,9 @@ class NotificationService(val context: Context) {
         val mBuilder = NotificationCompat.Builder(context, CHANNEL_ID)
                 .setSmallIcon(R.drawable.daily_logo)
                 .setContentTitle(context.getString(R.string.todays_expression))
-                .setContentText("${expression.title_translation}\n${expression.title}")
+                .setContentText("${expression.titleKorean}\n${expression.titleEnglish}")
                 .setStyle(NotificationCompat.BigTextStyle()
-                        .bigText("${expression.title_translation}\n${expression.title}"))
+                        .bigText("${expression.titleKorean}\n${expression.titleEnglish}"))
                 .setLargeIcon(
                         BitmapFactory.decodeResource(context.resources, getImage(getGender(expression)))
                 )
@@ -80,7 +80,7 @@ class NotificationService(val context: Context) {
 
     private fun getGender(expression: Expression) : String{
         expression.sentences.forEach { sentence ->
-            if (sentence.orgnc_sentence!!.contains(expression.title!!)){
+            if (sentence.sentenceEnglish!!.contains(expression.titleEnglish!!)){
                 return sentence.gender!!
             }
         }

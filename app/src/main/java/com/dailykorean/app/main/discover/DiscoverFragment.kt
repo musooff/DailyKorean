@@ -33,7 +33,7 @@ class DiscoverFragment: Fragment() {
     companion object {
         private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<Expression>() {
             override fun areItemsTheSame(oldConcert: Expression, newConcert: Expression): Boolean =
-                    oldConcert.public_date == newConcert.public_date
+                    oldConcert.publicDate == newConcert.publicDate
 
             override fun areContentsTheSame(oldConcert: Expression, newConcert: Expression): Boolean =
                     oldConcert == newConcert
@@ -78,9 +78,9 @@ class DiscoverFragment: Fragment() {
 
         inner class ExpressionViewHolder(val view: View): RecyclerView.ViewHolder(view){
             fun bind(expression: Expression){
-                view.expression_item_title.text = "${expression.title_translation}\n\n${expression.title}"
-                view.expression_item_date.text = DateUtils.toPrintString(expression.public_date)
-                view.expression_item_dates_passed.text = DateUtils.daysPassed(expression.public_date!!)
+                view.expression_item_title.text = "${expression.titleKorean}\n\n${expression.titleEnglish}"
+                view.expression_item_date.text = DateUtils.toPrintString(expression.publicDate)
+                view.expression_item_dates_passed.text = DateUtils.daysPassed(expression.publicDate!!)
 
                 if (expression.isFavorite){
                     view.expression_item_favorite.setImageResource(R.drawable.ic_star_black_24dp)

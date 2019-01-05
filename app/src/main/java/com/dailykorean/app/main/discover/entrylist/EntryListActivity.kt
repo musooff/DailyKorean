@@ -27,7 +27,7 @@ class EntryListActivity: BaseActivity() {
 
         const val KIND_ENG = 0
         const val KIND_KOR = 1
-        private const val CONV_ID = "convId"
+        private const val CONV_ID = "expId"
 
         fun newIntent(context: Context, convId: String){
             val intent = Intent(context, EntryListActivity::class.java)
@@ -80,7 +80,7 @@ class EntryListActivity: BaseActivity() {
 
         inner class EntryListViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
             fun bind(entry: Entry) {
-                view.entrylist_item_tv.text = entry.mean
+                view.entrylist_item_tv.text = entry.entryKorean
                 if (entry.isFavorite){
                     view.entrylist_item_bookmark.setImageResource(R.drawable.ic_bookmark_black_24dp)
                 }
@@ -89,10 +89,10 @@ class EntryListActivity: BaseActivity() {
                 }
                 view.entrylist_item.setOnClickListener {
                     if (entry.shownKind == KIND_KOR) {
-                        view.entrylist_item_tv.text = entry.orgnc_entry_name
+                        view.entrylist_item_tv.text = entry.entryEnglish
                         entry.shownKind = KIND_ENG
                     } else {
-                        view.entrylist_item_tv.text = entry.mean
+                        view.entrylist_item_tv.text = entry.entryKorean
                         entry.shownKind = KIND_KOR
                     }
                 }

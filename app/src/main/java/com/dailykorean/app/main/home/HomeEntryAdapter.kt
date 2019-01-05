@@ -31,8 +31,8 @@ class HomeEntryAdapter : RecyclerView.Adapter<HomeEntryAdapter.HomeEntryViewHold
 
     inner class HomeEntryViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
         fun bind(entry: Entry) {
-            view.fav_entry_eng.text = entry.orgnc_entry_name
-            view.fav_entry_kor.text = entry.mean
+            view.fav_entry_eng.text = entry.entryEnglish
+            view.fav_entry_kor.text = entry.entryKorean
         }
     }
 }

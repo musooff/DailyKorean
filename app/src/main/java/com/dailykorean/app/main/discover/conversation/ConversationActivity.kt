@@ -20,7 +20,7 @@ class ConversationActivity : BaseActivity() {
 
         const val KIND_ENG = 0
         const val KIND_KOR = 1
-        private const val CONV_ID = "convId"
+        private const val CONV_ID = "expId"
 
         fun newIntent(context: Context, convId: String) {
             val intent = Intent(context, ConversationActivity::class.java)

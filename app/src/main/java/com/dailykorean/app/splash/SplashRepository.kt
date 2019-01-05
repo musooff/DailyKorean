@@ -2,13 +2,10 @@ package com.dailykorean.app.splash
 
 import android.content.Context
 import com.dailykorean.app.main.discover.model.Expression
-import com.dailykorean.app.main.discover.model.HomeExpression
 import com.dailykorean.app.network.ExpressionService
 import com.dailykorean.app.room.AppDatabase
 import com.dailykorean.app.utils.DateUtils
-import com.dailykorean.app.utils.Ln
 import io.reactivex.Observable
-import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
@@ -24,8 +21,8 @@ class SplashRepository(val context: Context) {
         }
                 .flatMap {
                     when {
-                        it.public_date == null -> downloadData(false)
-                        it.public_date != DateUtils.getTodayDate() -> downloadData(true)
+                        it.publicDate == null -> downloadData(false)
+                        it.publicDate != DateUtils.getTodayDate() -> downloadData(true)
                         else -> Observable.just(true)
                     }
                 }

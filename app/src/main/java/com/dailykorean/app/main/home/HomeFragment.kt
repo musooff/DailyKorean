@@ -54,9 +54,9 @@ class HomeFragment: Fragment() {
 
         repository.getLatestExpression()
                 .subscribe({
-                    view.home_header_title.text = "${it.title_translation}\n\n${it.title}"
+                    view.home_header_title.text = "${it.titleKorean}\n\n${it.titleEnglish}"
                     it.sentences.forEach { sentence ->
-                        if (sentence.orgnc_sentence!!.contains(it.title!!)){
+                        if (sentence.sentenceEnglish!!.contains(it.titleEnglish!!)){
                             view.home_header_thumb.setImageDrawable(resources.getDrawable(getImage(sentence.gender!!)))
                         }
                     }

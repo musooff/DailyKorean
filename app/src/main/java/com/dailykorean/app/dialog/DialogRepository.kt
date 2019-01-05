@@ -21,7 +21,7 @@ class DialogRepository(val context: Context) {
             getAppDatabase().expressionDao().getExpression(date) ?: Expression()
         }
                 .flatMap {
-                    if (it.public_date == null){
+                    if (it.publicDate == null){
                         getExpressionServer(date)
                     }
                     else {

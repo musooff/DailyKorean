@@ -52,7 +52,7 @@ class DiscoverRepository(val context: Context) {
         }
 
         override fun onItemAtEndLoaded(itemAtEnd: Expression) {
-            getExpressionService().getExpression(DateUtils.getPrevDay(itemAtEnd.public_date))
+            getExpressionService().getExpression(DateUtils.getPrevDay(itemAtEnd.publicDate))
                     .map { it.data!! }
                     .doOnNext { getAppDatabase().expressionDao().insertReplace(it) }
                     .doOnNext { getAppDatabase().sentenceDao().insertReplace(it.sentences) }

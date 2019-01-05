@@ -10,6 +10,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.dailykorean.app.R
+import kotlinx.android.synthetic.main.empty_list.view.*
+import kotlinx.android.synthetic.main.fragment_favorite_expression.view.*
 import kotlinx.android.synthetic.main.my_toolbar.*
 
 /**
@@ -20,6 +22,18 @@ abstract class EditActionModeFragment : Fragment() {
 
 
     protected abstract fun getActionAdapter(): ActionAdapter
+
+    protected abstract fun getEmptyString(): String
+
+    fun invalidateEmptyList(view: View) {
+        if (getActionAdapter().isEditable()){
+            view.empty.visibility = View.GONE
+        }
+        else {
+            view.empty.visibility = View.VISIBLE
+            view.empty_text.text = getEmptyString()
+        }
+    }
 
     var selectedItems = ArrayList<String>()
 

@@ -11,10 +11,10 @@ import io.reactivex.Single
 @Dao
 interface SentenceDao: BaseDao<Sentence> {
     @Query("""SELECT * FROM Sentence
-        WHERE conv_id = :convId
-        ORDER BY disp_seq ASC""")
-    fun getConversation(convId: String): Single<List<Sentence>>
+        WHERE expId = :expId
+        ORDER BY displaySeq ASC""")
+    fun getConversation(expId: String): Single<List<Sentence>>
 
-    @Query("SELECT gender FROM Sentence WHERE trsl_orgnc_sentence = :trsl")
+    @Query("SELECT gender FROM Sentence WHERE sentenceKorean = :trsl")
     fun getGender(trsl : String): Single<String>
 }

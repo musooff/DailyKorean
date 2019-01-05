@@ -17,19 +17,19 @@ import java.util.*
 @Dao
 interface ExpressionDao : BaseDao<Expression> {
 
-    @Query("SELECT * FROM Expression ORDER BY public_date DESC")
+    @Query("SELECT * FROM Expression ORDER BY publicDate DESC")
     fun getExpressions(): DataSource.Factory<Int, Expression>
 
-    @Query("SELECT * FROM Expression ORDER BY public_date DESC LIMIT 1")
+    @Query("SELECT * FROM Expression ORDER BY publicDate DESC LIMIT 1")
     fun getLatestExpression(): Single<HomeExpression>
 
-    @Query("SELECT * FROM Expression ORDER BY public_date DESC LIMIT 1")
+    @Query("SELECT * FROM Expression ORDER BY publicDate DESC LIMIT 1")
     fun getLatestExpressionChecking(): Expression?
 
-    @Query("SELECT * FROM Expression WHERE public_date = :date")
+    @Query("SELECT * FROM Expression WHERE publicDate = :date")
     fun getExpression(date: Date): Expression?
 
-    @Query("SELECT * FROM Expression INNER JOIN Sentence ON Sentence.orgnc_sentence LIKE '%'||Expression.title||'%' WHERE isFavorite = :isFavorite ORDER BY public_date DESC")
+    @Query("SELECT * FROM Expression INNER JOIN Sentence ON Sentence.sentenceEnglish LIKE '%'||Expression.titleEnglish||'%' WHERE isFavorite = :isFavorite ORDER BY publicDate DESC")
     fun getFavoriteExpressions(isFavorite: Boolean): LiveData<List<FavoriteExpression>>
 
     @Query("UPDATE Expression SET isFavorite = :value WHERE id = :id")

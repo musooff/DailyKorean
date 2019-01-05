@@ -8,6 +8,7 @@ import androidx.room.Ignore
 import androidx.room.PrimaryKey
 import com.dailykorean.app.main.discover.entrylist.EntryListActivity
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
+import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
  * Created by musooff on 01/01/2019.
@@ -16,25 +17,33 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 @Entity
 @JsonIgnoreProperties(ignoreUnknown = true)
 class Entry() : Parcelable {
+
     @PrimaryKey
     @NonNull
     var id: String? = null
-    var conv_id: String? = null
-    var orgnc_entry_name: String? = null
+
+    @JsonProperty(value = "conv_id")
+    var expId: String? = null
+
+    @JsonProperty(value = "orgnc_entry_name")
+    var entryEnglish: String? = null
         set(value) {
             field = removeOtherMeanings(removeHTML(value!!))
         }
-    var mean: String? = null
+    @JsonProperty(value = "mean")
+    var entryKorean: String? = null
         set(value) {
             field = removeOtherMeanings(value!!)
         }
+
     var isFavorite: Boolean = false
+
     @Ignore
     var shownKind = EntryListActivity.KIND_KOR
 
     constructor(parcel: Parcel) : this() {
         id = parcel.readString()
-        conv_id = parcel.readString()
+        expId = parcel.readString()
         isFavorite = parcel.readByte() != 0.toByte()
         shownKind = parcel.readInt()
     }
@@ -58,7 +67,7 @@ class Entry() : Parcelable {
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(id)
-        parcel.writeString(conv_id)
+        parcel.writeString(expId)
         parcel.writeByte(if (isFavorite) 1 else 0)
         parcel.writeInt(shownKind)
     }

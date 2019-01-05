@@ -24,6 +24,10 @@ import com.dailykorean.app.utils.ExpressionUtils.getExpressionId
 
 class FavoriteExpressionFragment : EditActionModeFragment(){
 
+    override fun getEmptyString(): String {
+        return getString(R.string.no_fav_expression)
+    }
+
     override fun getActionAdapter(): ActionAdapter {
         return adapter
     }
@@ -55,6 +59,7 @@ class FavoriteExpressionFragment : EditActionModeFragment(){
             favoriteExpressions = it
             adapter.notifyDataSetChanged()
             invalidateOptionMenu()
+            invalidateEmptyList(view)
         })
     }
 
@@ -81,8 +86,8 @@ class FavoriteExpressionFragment : EditActionModeFragment(){
 
         inner class FavoriteExpressionViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
             fun bind(expression: FavoriteExpression) {
-                view.fav_exp_eng.text = expression.title_translation
-                view.fav_exp_kor.text = expression.title
+                view.fav_exp_eng.text = expression.titleKorean
+                view.fav_exp_kor.text = expression.titleEnglish
                 view.fav_exp_thumb_iv.setImageResource(getImage(expression.gender!!))
 
                 if (isActionMode) {
